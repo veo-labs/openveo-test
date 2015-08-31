@@ -1,12 +1,11 @@
 # Linux
+# *.swp is already ignored by npm
 .directory
 *~
-.*.swp
 
 # OS X
-.DS_Store*
+# .DS_Store* and ._* are already ignored by npm
 Icon?
-._*
 
 # Windows
 Thumbs.db
@@ -15,11 +14,9 @@ Desktop.ini
 # Windows XP
 ehthumbs.db
 
-# Project npm dependencies
-node_modules
-
 # IDE
 nbproject
 
-# Documentation (yuidoc)
-doc
+# Git
+.gitignore
+.gitattributes

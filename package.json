@@ -1,7 +1,28 @@
 {
-  "name": "openveo-test",
+  "name": "@openveo/test",
   "version": "0.0.1",
-  "private": true,
+  "description": "OpenVeo test API for unit tests",
+  "publishConfig": {
+    "registry": "http://87.98.155.235:4873/"
+  },
+  "keywords": [
+    "openveo",
+    "unit tests",
+    "veo-labs"
+  ],
+  "homepage": "https://gitlab.com/TODO",
+  "bugs": {
+    "url": "https://gitlab.com/TODO"
+  },
+  "license": "TODO",
+  "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
+  "files": [
+    "An array of files to automatically include in the project's package"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/TODO"
+  },
   "dependencies": {},
   "devDependencies": {},
   "engines": {
