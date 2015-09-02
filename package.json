@@ -10,22 +10,20 @@
     "unit tests",
     "veo-labs"
   ],
-  "homepage": "https://gitlab.com/TODO",
+  "homepage": "https://gitlab.com/veo-labs/openveo-test",
   "bugs": {
-    "url": "https://gitlab.com/TODO"
+    "url": "https://gitlab.com/veo-labs/openveo-test/issues"
   },
-  "license": "TODO",
+  "license": "MIT",
   "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
-  "files": [
-    "An array of files to automatically include in the project's package"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/TODO"
+    "url": "https://gitlab.com/veo-labs/openveo-test.git"
   },
   "dependencies": {},
   "devDependencies": {},
-  "engines": {
-    "node": "^0.10.0"
+  "peerDependencies": {
+    "@openveo/core": ">=0.0.2",
+    "@openveo/publish": ">=0.0.2"
   }
 }
