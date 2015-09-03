@@ -20,3 +20,9 @@ nbproject
 # Git
 .gitignore
 .gitattributes
+
+# Project npm dependencies
+/node_modules
+
+# Documentation (yuidoc)
+/doc
