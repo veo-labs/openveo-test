@@ -21,7 +21,9 @@
     "url": "https://gitlab.com/veo-labs/openveo-test.git"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-eslint": "^17.1.0"
+  },
   "peerDependencies": {
     "@openveo/core": ">=0.0.2",
     "@openveo/publish": ">=0.0.2"
