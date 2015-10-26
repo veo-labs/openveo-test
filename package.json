@@ -1,24 +1,22 @@
 {
   "name": "@openveo/test",
-  "version": "0.0.1",
-  "description": "OpenVeo test API for unit tests",
-  "publishConfig": {
-    "registry": "http://87.98.155.235:4873/"
-  },
+  "version": "1.0.0",
+  "description": "Test API for OpenVeo unit tests",
   "keywords": [
     "openveo",
     "unit tests",
+    "test API",
     "veo-labs"
   ],
-  "homepage": "https://gitlab.com/veo-labs/openveo-test",
+  "homepage": "https://github.com/veo-labs/openveo-test",
   "bugs": {
-    "url": "https://gitlab.com/veo-labs/openveo-test/issues"
+    "url": "https://github.com/veo-labs/openveo-test/issues"
   },
   "license": "AGPL-3.0",
   "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/veo-labs/openveo-test.git"
+    "url": "https://github.com/veo-labs/openveo-test.git"
   },
   "dependencies": {},
   "devDependencies": {
