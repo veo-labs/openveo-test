@@ -20,8 +20,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt-eslint": "^17.2.0",
-    "pre-commit": "^1.1.1"
+    "grunt-eslint": ">=17.2.0",
+    "pre-commit": ">=1.1.1"
   },
   "peerDependencies": {
     "@openveo/core": "~1.0.0",
