@@ -24,8 +24,8 @@
     "pre-commit": "^1.1.1"
   },
   "peerDependencies": {
-    "@openveo/core": ">=0.0.2",
-    "@openveo/publish": ">=0.0.2"
+    "@openveo/core": "~1.0.0",
+    "@openveo/publish": "~1.0.0"
   },
   "scripts": {
     "eslint": "grunt eslint"
