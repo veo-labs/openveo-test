@@ -1,6 +1,6 @@
 {
   "name": "@openveo/test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test API for OpenVeo unit tests",
   "keywords": [
     "openveo",
@@ -30,5 +30,7 @@
   "scripts": {
     "eslint": "grunt eslint"
   },
-  "precommit": ["eslint"]
+  "precommit": [
+    "eslint"
+  ]
 }
