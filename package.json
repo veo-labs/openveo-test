@@ -23,10 +23,6 @@
     "grunt-eslint": ">=17.2.0",
     "pre-commit": ">=1.1.1"
   },
-  "peerDependencies": {
-    "@openveo/core": "~1.0.0",
-    "@openveo/publish": "~1.0.0"
-  },
   "scripts": {
     "eslint": "grunt eslint"
   },
