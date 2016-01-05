@@ -25,7 +25,8 @@ nbproject
 /node_modules
 
 # Documentation (yuidoc)
-/doc
+/site
+/.grunt
 
 # Eslint
 .eslintrc

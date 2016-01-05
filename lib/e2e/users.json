@@ -1,0 +1,9 @@
+{
+  "testSuperAdmin": {
+    "id": "0",
+    "name": "test-super-admin",
+    "email": "test-super-admin@veo-labs.com",
+    "password": "test-super-admin",
+    "locked": true
+  }
+}

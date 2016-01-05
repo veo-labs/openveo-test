@@ -27,9 +27,23 @@ function loadConfig(path) {
 }
 
 module.exports = function(grunt) {
+  var config = {
+    pkg: grunt.file.readJSON('package.json'),
+    env: process.env
+  };
+
+  grunt.initConfig(config);
   grunt.config.merge(loadConfig('./tasks'));
 
   // Load grunt plugins
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-gh-pages');
+
+  // Generate documentation
+  grunt.registerTask('doc', ['yuidoc']);
+
+  // Deploy documentation to github pages
+  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
 
 };
