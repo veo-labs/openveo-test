@@ -24,7 +24,9 @@
     "grunt-contrib-yuidoc": ">=0.8.0",
     "grunt-gh-pages": ">=0.10.0",
     "yuidoc-theme-blue": ">=0.1.9",
-    "pre-commit": ">=1.1.1"
+    "pre-commit": ">=1.1.1",
+    "chai": ">=1.10.0",
+    "chai-as-promised": ">=5.1.0"
   },
   "scripts": {
     "eslint": "grunt eslint"
