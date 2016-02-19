@@ -1,0 +1,37 @@
+{
+  "name": "@openveo/test",
+  "version": "2.0.0",
+  "description": "Test API for OpenVeo unit tests",
+  "keywords": [
+    "openveo",
+    "unit tests",
+    "test API",
+    "veo-labs"
+  ],
+  "homepage": "https://github.com/veo-labs/openveo-test",
+  "bugs": {
+    "url": "https://github.com/veo-labs/openveo-test/issues"
+  },
+  "license": "AGPL-3.0",
+  "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veo-labs/openveo-test.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-eslint": ">=17.2.0",
+    "grunt-contrib-yuidoc": ">=0.8.0",
+    "grunt-gh-pages": ">=0.10.0",
+    "yuidoc-theme-blue": ">=0.1.9",
+    "pre-commit": ">=1.1.1",
+    "chai": ">=1.10.0",
+    "chai-as-promised": ">=5.1.0"
+  },
+  "scripts": {
+    "eslint": "grunt eslint"
+  },
+  "precommit": [
+    "eslint"
+  ]
+}

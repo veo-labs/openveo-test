@@ -1,0 +1,3686 @@
+{
+    "project": {
+        "name": "OpenVeo test API",
+        "description": "Unit tests and end to end tests API for OpenVeo",
+        "version": "2.0.0"
+    },
+    "files": {
+        "lib\\e2e\\assertions\\TableAssert.js": {
+            "name": "lib\\e2e\\assertions\\TableAssert.js",
+            "modules": {},
+            "classes": {
+                "TableAssert": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\CheckboxesField.js": {
+            "name": "lib\\e2e\\fields\\CheckboxesField.js",
+            "modules": {},
+            "classes": {
+                "CheckboxesField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\DateField.js": {
+            "name": "lib\\e2e\\fields\\DateField.js",
+            "modules": {},
+            "classes": {
+                "DateField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\Field.js": {
+            "name": "lib\\e2e\\fields\\Field.js",
+            "modules": {},
+            "classes": {
+                "Field": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\SelectField.js": {
+            "name": "lib\\e2e\\fields\\SelectField.js",
+            "modules": {},
+            "classes": {
+                "SelectField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\TextField.js": {
+            "name": "lib\\e2e\\fields\\TextField.js",
+            "modules": {},
+            "classes": {
+                "TextField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\TextareaField.js": {
+            "name": "lib\\e2e\\fields\\TextareaField.js",
+            "modules": {},
+            "classes": {
+                "TextareaField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\fields\\TimeField.js": {
+            "name": "lib\\e2e\\fields\\TimeField.js",
+            "modules": {},
+            "classes": {
+                "TimeField": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\pages\\BackEndPage.js": {
+            "name": "lib\\e2e\\pages\\BackEndPage.js",
+            "modules": {},
+            "classes": {
+                "BackEndPage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\pages\\Page.js": {
+            "name": "lib\\e2e\\pages\\Page.js",
+            "modules": {},
+            "classes": {
+                "Page": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\pages\\TablePage.js": {
+            "name": "lib\\e2e\\pages\\TablePage.js",
+            "modules": {},
+            "classes": {
+                "TablePage": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\plugins\\screenshotPlugin.js": {
+            "name": "lib\\e2e\\plugins\\screenshotPlugin.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\browser.js": {
+            "name": "lib\\e2e\\browser.js",
+            "modules": {},
+            "classes": {
+                "browser": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\doc.js": {
+            "name": "lib\\e2e\\doc.js",
+            "modules": {
+                "e2e": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\e2e\\i18n.js": {
+            "name": "lib\\e2e\\i18n.js",
+            "modules": {},
+            "classes": {
+                "i18n": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\unit\\doc.js": {
+            "name": "lib\\unit\\doc.js",
+            "modules": {
+                "unit": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\unit\\generator.js": {
+            "name": "lib\\unit\\generator.js",
+            "modules": {},
+            "classes": {
+                "generator": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "e2e": {
+            "name": "e2e",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "TableAssert": 1,
+                "CheckboxesField": 1,
+                "DateField": 1,
+                "Field": 1,
+                "SelectField": 1,
+                "TextField": 1,
+                "TextareaField": 1,
+                "TimeField": 1,
+                "BackEndPage": 1,
+                "Page": 1,
+                "TablePage": 1,
+                "browser": 1,
+                "i18n": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "lib\\e2e\\i18n.js",
+            "line": 3,
+            "description": "Exposes a list of modules to help writing end to end tests on OpenVeo using protractor.",
+            "example": [
+                "\n\n    var Page = require('@openveo/test').e2e.Page;\n    var BackEndPage = require('@openveo/test').e2e.BackEndPage;\n    var TablePage = require('@openveo/test').e2e.TablePage;\n    var Field = require('@openveo/test').e2e.Field;\n    var DateField = require('@openveo/test').e2e.DateField;\n    var SelectField = require('@openveo/test').e2e.SelectField;\n    var TextField = require('@openveo/test').e2e.TextField;\n    var TableAssert = require('@openveo/test').e2e.assertions.TableAssert;\n    var i18n = require('@openveo/test').e2e.i18n;\n    var browser = require('@openveo/test').e2e.browser;"
+            ],
+            "itemtype": "main"
+        },
+        "unit": {
+            "name": "unit",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "generator": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "lib\\unit\\generator.js",
+            "line": 3,
+            "description": "Exposes a list of modules to help writing server unit tests on OpenVeo using mocha.",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "TableAssert": {
+            "name": "TableAssert",
+            "shortname": "TableAssert",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 14,
+            "description": "Creates a table assertion helper to help writing assertions for table pages.",
+            "example": [
+                "\n\n    var TableAssert = require('@openveo/test').e2e.asserts.TableAssert;\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);"
+            ],
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "page",
+                    "description": "The table page to test",
+                    "type": "TablePage"
+                }
+            ]
+        },
+        "CheckboxesField": {
+            "name": "CheckboxesField",
+            "shortname": "CheckboxesField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\CheckboxesField.js",
+            "line": 11,
+            "description": "A form checkboxes field.\n\nUse Field.get method to get an instance of CheckboxesField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var CheckboxesField = Field.get({\n      type: 'checkboxes',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "Field"
+        },
+        "DateField": {
+            "name": "DateField",
+            "shortname": "DateField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\DateField.js",
+            "line": 10,
+            "description": "A form date field.\n\nUse Field.get method to get an instance of DateField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var myDateField = Field.get({\n      type: 'date',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "TextField"
+        },
+        "Field": {
+            "name": "Field",
+            "shortname": "Field",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 7,
+            "description": "A form field to help writing end to end tests.\n\nHelp manipulate form fields in a Page.\nUse Field.get() method to get a Field instance.",
+            "is_constructor": 1
+        },
+        "SelectField": {
+            "name": "SelectField",
+            "shortname": "SelectField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\SelectField.js",
+            "line": 11,
+            "description": "A form select field.\n\nUse Field.get method to get an instance of SelectField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var mySelectField = Field.get({\n      type: 'select',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "Field"
+        },
+        "TextField": {
+            "name": "TextField",
+            "shortname": "TextField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 10,
+            "description": "A form text field.\n\nUse Field.get method to get an instance of TextField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var myTextField = Field.get({\n      type: 'text',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "Field"
+        },
+        "TextareaField": {
+            "name": "TextareaField",
+            "shortname": "TextareaField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\TextareaField.js",
+            "line": 10,
+            "description": "A form text field.\n\nUse Field.get method to get an instance of TextareaField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var myTextareaField = Field.get({\n      type: 'textarea',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "Field"
+        },
+        "TimeField": {
+            "name": "TimeField",
+            "shortname": "TimeField",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\fields\\TimeField.js",
+            "line": 10,
+            "description": "A form time field.\n\nUse Field.get method to get an instance of TimeField.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var TimeField = Field.get({\n      type: 'time',\n      name: 'My time field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "is_constructor": 1,
+            "extends": "Field"
+        },
+        "BackEndPage": {
+            "name": "BackEndPage",
+            "shortname": "BackEndPage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 25,
+            "description": "A back end page to help writing end to end tests on OpenVeo back end pages.\n\nDo not use this directly but extend it.",
+            "example": [
+                "\n\n    var BackEndPage = require('@openveo/test').e2e.BackEndPage;\n\n    function MyBackEndPage() {\n      MyBackEndPage.super_.call(this);\n      this.path = 'be/myBackEndPage';\n    }\n\n    module.exports = MyBackEndPage;\n    util.inherits(MyBackEndPage, BackEndPage);\n\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.load().then(function() {\n      console.log('Page fully loaded in the first language of the list of languages');\n    });"
+            ],
+            "extends": "Page",
+            "is_constructor": 1
+        },
+        "Page": {
+            "name": "Page",
+            "shortname": "Page",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 7,
+            "description": "A web page to help writing end to end tests with protractor for OpenVeo.\n\nDo not use this directly but extend it.",
+            "example": [
+                "\n\n    var Page = require('@openveo/test').e2e.Page;\n\n    function MyPage() {\n      MyPage.super_.call(this);\n      this.path = 'be/myPage';\n    }\n\n    module.exports = MyPage;\n    util.inherits(MyPage, Page);\n\n    var page = new MyPage();\n    page.load().then(function() {\n      console.log('Page fully loaded');\n    });"
+            ],
+            "is_constructor": 1
+        },
+        "TablePage": {
+            "name": "TablePage",
+            "shortname": "TablePage",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 12,
+            "description": "Creates a new TablePage representing a back end page with a table and form to add an entity.\n\nDo not use this directly but extend it.",
+            "example": [
+                "\n\n    var TablePage = require('@openveo/test').e2e.TablePage;\n\n    function MyTablePage() {\n      MyTablePage.super_.call(this);\n      this.path = 'be/myTablePage';\n    }\n\n    module.exports = MyTablePage;\n    util.inherits(MyTablePage, TablePage);\n\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load().then(function() {\n      console.log('Page fully loaded in the first language');\n    });"
+            ],
+            "extends": "BackEndPage",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "model",
+                    "description": "Model to interact directly with the database",
+                    "type": "EntityModel"
+                }
+            ]
+        },
+        "browser": {
+            "name": "browser",
+            "shortname": "browser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\browser.js",
+            "line": 3,
+            "description": "Helps using some protractor browser features."
+        },
+        "i18n": {
+            "name": "i18n",
+            "shortname": "i18n",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "e2e",
+            "namespace": "",
+            "file": "lib\\e2e\\i18n.js",
+            "line": 3,
+            "description": "Helps retrieving project's translations."
+        },
+        "generator": {
+            "name": "generator",
+            "shortname": "generator",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "unit",
+            "namespace": "",
+            "file": "lib\\unit\\generator.js",
+            "line": 3,
+            "description": "Provides functions to interact with the file system as an extension to the Node.js filesystem module."
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 35,
+            "description": "Checks that table navigation is working.\n\nUse table navigation links to navigate on pages and verify, on each page, the current page, total pages,\ntotal lines and the number of lines in the page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkPagination(50, 10);"
+            ],
+            "itemtype": "method",
+            "name": "checkNavigation",
+            "params": [
+                {
+                    "name": "totalElements",
+                    "description": "The total number of elements",
+                    "type": "Number"
+                },
+                {
+                    "name": "numberPerPage",
+                    "description": "The number of elements displayed per page",
+                    "type": "Number"
+                },
+                {
+                    "name": "index",
+                    "description": "The page index",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when navigation has been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 87,
+            "description": "Checks if lines are correctly sorted for both ascending and descending order.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkSort('My column');"
+            ],
+            "itemtype": "method",
+            "name": "checkSort",
+            "params": [
+                {
+                    "name": "property",
+                    "description": "The name of the column to sort on",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when sort has been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 154,
+            "description": "Checks if buttons to change the number of displayed items per page are displayed correctly depending on the\nactual number of lines in the table.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkItemsPerPageButtons();"
+            ],
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "checkItemsPerPageButtons",
+            "return": {
+                "description": "Promise resolving when buttons have been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 189,
+            "description": "Checks if buttons to change the number of displayed items per page are correctly displayed regarding the\ntotal number of lines.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkItemsPerPage();"
+            ],
+            "itemtype": "method",
+            "name": "checkItemsPerPage",
+            "return": {
+                "description": "Promise resolving when buttons per page have been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 265,
+            "description": "Checks if removing several lines at the same time works correctly.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkMassiveRemove();"
+            ],
+            "itemtype": "method",
+            "name": "checkMassiveRemove",
+            "return": {
+                "description": "Promise resolving when massive remove has been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 313,
+            "description": "Checks if pagination works correctly.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkPagination();"
+            ],
+            "itemtype": "method",
+            "name": "checkPagination",
+            "return": {
+                "description": "Promise resolving when pagination has been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 372,
+            "description": "Checks if search engine works correctly.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n\n    var expectedValues = ['Test 1', 'Test 2'];\n    var search = { name: 'Name' };\n\n    // Execute search and get all values of column 'Name' then compare this values to the expected values\n    tableAssert.checkSearch(search, expectedValues, 'Name');"
+            ],
+            "itemtype": "method",
+            "name": "checkSearch",
+            "params": [
+                {
+                    "name": "search",
+                    "description": "A search description object",
+                    "type": "Object"
+                },
+                {
+                    "name": "expectedValues",
+                    "description": "The expected list of line values corresponding to the research",
+                    "type": "Array"
+                },
+                {
+                    "name": "columnName",
+                    "description": "The name of the column to extract value from and compare to expectedValues",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when search has been checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 415,
+            "description": "Checks if canceling a remove action is working correctly.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkCancelRemove();"
+            ],
+            "itemtype": "method",
+            "name": "checkCancelRemove",
+            "return": {
+                "description": "Promise resolving when cancel is checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\assertions\\TableAssert.js",
+            "line": 459,
+            "description": "Checks if selecting lines works.\n\nYou don't need to add lines to the table before calling this method. Necessary lines are automatically added\nand then removed using page addLinesByPassAuto / removeLinesByPass methods.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    var tableAssert = new TableAssert(page);\n    tableAssert.checkLinesSelection('My column');"
+            ],
+            "itemtype": "method",
+            "name": "checkLinesSelection",
+            "params": [
+                {
+                    "name": "columnTitle",
+                    "description": "The name of the column to get lines",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when selection is checked",
+                "type": "Promise"
+            },
+            "class": "TableAssert",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\CheckboxesField.js",
+            "line": 37,
+            "description": "Gets selected checkboxe names.",
+            "example": [
+                "\n\n    myField.getValue().then(function(values) {\n      console.log(values);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "Promise resolving with selected checkboxes",
+                "type": "Promise"
+            },
+            "class": "CheckboxesField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\CheckboxesField.js",
+            "line": 75,
+            "description": "Sets field value.",
+            "example": [
+                "\n\n    myField.setValue(['Label 1', 'Label 2']).then(function() {\n      console.log('Value set');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "values",
+                    "description": "Checkboxe's values",
+                    "type": "Array",
+                    "optional": true,
+                    "optdefault": "[]"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when checkboxes are checked",
+                "type": "Promise"
+            },
+            "class": "CheckboxesField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\CheckboxesField.js",
+            "line": 120,
+            "description": "Unchecks all checkboxes.",
+            "example": [
+                "\n\n    myField.clear().then(function() {\n      console.log('Field cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "Promise resolving when the field is cleared",
+                "type": "Promise"
+            },
+            "class": "CheckboxesField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 18,
+            "description": "Field label.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 26,
+            "description": "Element from where to look for the field (typically the form element).",
+            "itemtype": "property",
+            "name": "baseElement",
+            "type": "ElementFinder",
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 40,
+            "description": "Gets an instance of a Field.",
+            "example": [
+                "\n\n    var Field = require('@openveo/test').e2e.Field;\n\n    var myTextField = Field.get({\n      type: 'text',\n      name: 'My field',\n      baseElement: element(by.css('form'))\n    });"
+            ],
+            "itemtype": "method",
+            "name": "get",
+            "static": 1,
+            "params": [
+                {
+                    "name": "conf",
+                    "description": "A field configuration object",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "An instance of a Field sub object",
+                "type": "Field"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 89,
+            "description": "Gets field description.",
+            "example": [
+                "\n\n    myField.getDescription().then(function(description) {\n      console.log('Field description is : ' + description);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getDescription",
+            "return": {
+                "description": "Promise resolving with the description",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 108,
+            "description": "Gets field label.",
+            "example": [
+                "\n\n    myField.getLabel().then(function(label) {\n      console.log('Field label is : ' + label);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLabel",
+            "return": {
+                "description": "Promise resolving with the label",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 129,
+            "description": "Gets field element wrapper.\n\nLook for a form element label and return its parent.",
+            "itemtype": "method",
+            "name": "getElement",
+            "return": {
+                "description": "Promise resolving with the element",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 163,
+            "description": "Gets field error message.",
+            "example": [
+                "\n\n    myField.getErrorMessage().then(function(errorMessage) {\n      console.log('Error message : ' + errorMessage);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getErrorMessage",
+            "return": {
+                "description": "Promise resolving with the error message",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 184,
+            "description": "Gets field text representation in case of an inline editable field.",
+            "example": [
+                "\n\n    myField.getText().then(function(text) {\n      console.log(text);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getText",
+            "return": {
+                "description": "Promise resolving with field text representation",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 205,
+            "description": "Gets field value.",
+            "example": [
+                "\n\n    myField.getValue().then(function(value) {\n      console.log(value);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "Promise resolving with field value",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 221,
+            "description": "Sets field value.",
+            "example": [
+                "\n\n    myField.setValue('new value').then(function() {\n      console.log('Value set');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "Field's value depending on its type",
+                    "type": "String|Object|Number|Boolean",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the value is set",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 238,
+            "description": "Clears field value.",
+            "example": [
+                "\n\n    myField.clear().then(function() {\n      console.log('Field cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "Promise resolving when the field is cleared",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\Field.js",
+            "line": 254,
+            "description": "Tests if a field is considered as on error.",
+            "example": [
+                "\n\n    myField.isOnError().then(function(isOnError) {\n      console.log('Is field on error ? ' + isOnError);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isOnError",
+            "return": {
+                "description": "Promise resolving with a boolean indicating if the field is on error",
+                "type": "Promise"
+            },
+            "class": "Field",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\SelectField.js",
+            "line": 37,
+            "description": "Gets field value.",
+            "example": [
+                "\n\n    myField.getValue().then(function(value) {\n      console.log('Got value : ' + value);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "Promise resolving with the name of the selected option (not the value)",
+                "type": "Promise"
+            },
+            "class": "SelectField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\SelectField.js",
+            "line": 64,
+            "description": "Sets field value.",
+            "example": [
+                "\n\n    myField.setValue('new value').then(function() {\n      console.log('Value set');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The name of the option to select (not the value)",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "''"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the field is filled",
+                "type": "Promise"
+            },
+            "class": "SelectField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\SelectField.js",
+            "line": 87,
+            "description": "Clears field value.\n\nThis will select the first option of the select element.",
+            "example": [
+                "\n\n    myField.clear().then(function() {\n      console.log('Field cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "Promise resolving when the field is cleared",
+                "type": "Promise"
+            },
+            "class": "SelectField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 32,
+            "description": "Tag name of the text field.",
+            "itemtype": "property",
+            "name": "fieldTag",
+            "type": "ElementFinder",
+            "default": "\"input\"",
+            "class": "TextField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 45,
+            "description": "Gets field value.",
+            "example": [
+                "\n\n    myField.getValue().then(function(value) {\n      console.log('Got value : ' + value);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "Promise resolving with field value",
+                "type": "Promise"
+            },
+            "class": "TextField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 66,
+            "description": "Sets field value.",
+            "example": [
+                "\n\n    myField.setValue('new value').then(function() {\n      console.log('Value set');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "Field's value",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "''"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the field is filled",
+                "type": "Promise"
+            },
+            "class": "TextField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 94,
+            "description": "Clears field value.",
+            "example": [
+                "\n\n    myField.clear().then(function() {\n      console.log('Field cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "Promise resolving when the field is cleared",
+                "type": "Promise"
+            },
+            "class": "TextField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TextField.js",
+            "line": 115,
+            "description": "Tests if a field is considered as on error.",
+            "example": [
+                "\n\n    myField.isOnError().then(function(isOnError) {\n      console.log('Is field on error ? ' + isOnError);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isOnError",
+            "return": {
+                "description": "Promise resolving with a boolean indicating if the field is on error",
+                "type": "Promise"
+            },
+            "class": "TextField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TimeField.js",
+            "line": 36,
+            "description": "Gets field value.",
+            "example": [
+                "\n\n    myField.getValue().then(function(value) {\n      console.log('Got value : ' + value);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getValue",
+            "return": {
+                "description": "Promise resolving with field value",
+                "type": "Promise"
+            },
+            "class": "TimeField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TimeField.js",
+            "line": 57,
+            "description": "Sets field value.\n\nActually it's not possible to use the Web Driver to set the value of the input in time state.\nUntil this feature is added to the Web Driver, value of the input is set programmatically.\nBe careful events on the input won't be dispatched (change, click and so on).",
+            "example": [
+                "\n\n    myField.setValue('new value').then(function() {\n      console.log('Value set');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setValue",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "Field's value format as hh:mm:ss",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'00:00:00'"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the field is filled",
+                "type": "Promise"
+            },
+            "class": "TimeField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\fields\\TimeField.js",
+            "line": 97,
+            "description": "Clears field value.",
+            "example": [
+                "\n\n    myField.clear().then(function() {\n      console.log('Field cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clear",
+            "return": {
+                "description": "Promise resolving when the field is cleared",
+                "type": "Promise"
+            },
+            "class": "TimeField",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 55,
+            "description": "List of alert elements.",
+            "itemtype": "property",
+            "name": "alertElements",
+            "type": "ElementArrayFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 63,
+            "description": "Popover element.",
+            "itemtype": "property",
+            "name": "popoverElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 71,
+            "description": "Button to toggle left menu.",
+            "itemtype": "property",
+            "name": "toggleLeftMenuLinkElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 79,
+            "description": "Left menu wrapper element.\n\nDisplayed or not as the left menu is opened or not.",
+            "itemtype": "property",
+            "name": "leftMenuElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 89,
+            "description": "Profile link element.",
+            "itemtype": "property",
+            "name": "profileLinkElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 97,
+            "description": "Language link element to open the list of languages.",
+            "itemtype": "property",
+            "name": "languageLinkElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 105,
+            "description": "Logout link element.",
+            "itemtype": "property",
+            "name": "logoutLinkElement",
+            "type": "ElementFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 113,
+            "description": "List of first level link elements in left menu.",
+            "itemtype": "property",
+            "name": "level1MenuLinkElements",
+            "type": "ElementArrayFinder",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 121,
+            "description": "List of back end translations.",
+            "itemtype": "property",
+            "name": "translations",
+            "type": "Object",
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 133,
+            "description": "Looks for a menu item and click on it.\n\nThis will look for the item in menu and sub menus to find the item by its name.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "clickMenuRecursive",
+            "params": [
+                {
+                    "name": "elements",
+                    "description": "Menu items elements",
+                    "type": "ElementArrayFinder"
+                },
+                {
+                    "name": "itemName",
+                    "description": "Name of the menu item to look for",
+                    "type": "ItemName"
+                }
+            ],
+            "return": {
+                "description": "A promise resolving when the menu item is clicked",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 203,
+            "description": "Loads the page and select the first available language.\n\nThis will automatically select the first language in the list of available languages.",
+            "example": [
+                "\n\n    var BackEndPage = require('@openveo/test').e2e.BackEndPage;\n\n    function MyBackEndPage() {\n      MyBackEndPage.super_.call(this);\n      this.path = 'be/myBackEndPage';\n    }\n\n    module.exports = MyBackEndPage;\n    util.inherits(MyBackEndPage, BackEndPage);\n\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.load().then(function() {\n      console.log('Page fully loaded in the first language');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "load",
+            "return": {
+                "description": "Promise resolving when the page is loaded and language changed",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 238,
+            "description": "Sets page language.\n\nIt uses the top menu to change the language, a page reload will be performed.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    var languages = page.getLanguages();\n\n    page.logAsAdmin();\n    page.selectLanguage(languages[1]).then(function() {\n      console.log('Page reloaded in french');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectLanguage",
+            "params": [
+                {
+                    "name": "language",
+                    "description": "The language to load",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the page is reloaded with the expected language",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 290,
+            "description": "Gets language link element.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.click(page.getLanguageOption('fr')).then(function() {\n      console.log('Page is now in french');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLanguageOption",
+            "params": [
+                {
+                    "name": "languageCode",
+                    "description": "The language code to load (e.g. en)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The language option element",
+                "type": "ElementFinder"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 309,
+            "description": "Authenticates to the back end using the given account.\n\nIf an account is already logged in, it will be logged out.",
+            "example": [
+                "\n\n    var user = {\n      \"email\": \"some-user@veo-labs.com\",\n      \"password\": \"some-user\"\n    }\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAs(user).then(function() {\n      console.log('Logged as some-user');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "logAs",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "Information about the user",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when authenticated to the back end",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 362,
+            "description": "Logs to the back end using the super administrator account.\n\nThe super administrator can perform any actions.\nIf an account is already logged in, it will be logged out. Super administrator is also locked.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin().then(function() {\n      console.log('Logged as super admin');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "logAsAdmin",
+            "return": {
+                "description": "Promise resolving when authenticated as the super administrator",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 383,
+            "description": "Gets current logged in user.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin().then(function() {\n      console.log(page.getUser());\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getUser",
+            "return": {
+                "description": "The current logged in user",
+                "type": "Object"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 401,
+            "description": "Logs out current authenticated user.\n\nThis will lead to the login page.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.logout().then(function() {\n      console.log('Logged out');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "logout",
+            "return": {
+                "description": "Promise resolving when user is logged out and login page is displayed",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 452,
+            "description": "Gets the list of available languages.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    console.log(page.getLanguages());"
+            ],
+            "itemtype": "method",
+            "name": "getLanguages",
+            "return": {
+                "description": "The list of available languages",
+                "type": "Array"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 468,
+            "description": "Gets a level 1 menu items.\n\nAll elements corresponding to the item name will be returned.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.getLevel1MenuItems('Rights').then(function(elements) {\n      console.log(elements);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLevel1MenuItems",
+            "params": [
+                {
+                    "name": "itemName",
+                    "description": "The translated name of the menu item",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the list of elements corresponding to the given name",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 506,
+            "description": "Opens left menu.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.openMenu().then(function() {\n      console.log('Left menu opened');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "openMenu",
+            "return": {
+                "description": "Promise resolving when left menu is opened",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 542,
+            "description": "Closes menu.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.closeMenu().then(function() {\n      console.log('Left menu closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeMenu",
+            "return": {
+                "description": "Promise resolving when menu is closed",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 579,
+            "description": "Opens an item sub menu.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.openSubMenu('Rights').then(function() {\n      console.log('Rights sub menu opened');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "openSubMenu",
+            "params": [
+                {
+                    "name": "itemName",
+                    "description": "The name of the menu item",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when sub menu is opened",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 630,
+            "description": "Closes an item sub menu by its name.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.closeSubMenu('Rights').then(function() {\n      console.log('Rights sub menu closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeSubMenu",
+            "params": [
+                {
+                    "name": "itemName",
+                    "description": "The name of the menu item having a sub menu",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when sub menu is closed",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 691,
+            "description": "Clicks on a menu item.\n\nThis will look for the item in menu and sub menus to find the item by its name.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.clickMenu('Roles').then(function() {\n      console.log('Roles menu item clicked');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clickMenu",
+            "params": [
+                {
+                    "name": "itemName",
+                    "description": "The name of the menu item",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when menu is clicked",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 720,
+            "description": "Clicks on profile link.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.clickProfile().then(function() {\n      console.log('Profile link clicked');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clickProfile",
+            "return": {
+                "description": "Promise resolving when profile link is clicked",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 739,
+            "description": "Closes all alerts.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.closeAlerts().then(function() {\n      console.log('All alerts closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeAlerts",
+            "return": {
+                "description": "Promise resolving when all alerts are closed",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\BackEndPage.js",
+            "line": 771,
+            "description": "Gets all alert messages.",
+            "example": [
+                "\n\n    // With MyBackEndPage extending BackEndPage\n    var page = new MyBackEndPage();\n    page.logAsAdmin();\n    page.getAlertMessages().then(function(messages) {\n      console.log(messages);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getAlertMessages",
+            "return": {
+                "description": "Promise resolving with all alert messages",
+                "type": "Promise"
+            },
+            "class": "BackEndPage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 34,
+            "description": "Protractor expected conditions.",
+            "itemtype": "property",
+            "name": "EC",
+            "type": "ExpectedConditions",
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 42,
+            "description": "Protractor control flow.",
+            "itemtype": "property",
+            "name": "flow",
+            "type": "ControlFlow",
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 50,
+            "description": "Body element.",
+            "itemtype": "property",
+            "name": "bodyElement",
+            "type": "ElementFinder",
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 58,
+            "description": "Page element.\n\nPage wrapper holding the content scrollbar.",
+            "itemtype": "property",
+            "name": "pageElement",
+            "type": "ElementFinder",
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 71,
+            "description": "Loads the page.",
+            "example": [
+                "\n\n    var Page = require('@openveo/test').e2e.Page;\n\n    function MyPage() {\n      MyPage.super_.call(this);\n      this.path = 'be/myPage';\n    }\n\n    module.exports = MyPage;\n    util.inherits(MyPage, Page);\n\n    var page = new MyPage();\n    page.load().then(function() {\n      console.log('Page fully loaded');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "load",
+            "return": {
+                "description": "Promise resolving when the page is fully loaded",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 119,
+            "description": "Gets page title as described by the HTMLTitleElement.",
+            "example": [
+                "\n\n    // With MyPage extending Page\n    var page = new MyPage();\n    assert.eventually.equal(page.getTitle(), 'My page title');"
+            ],
+            "itemtype": "method",
+            "name": "getTitle",
+            "return": {
+                "description": "Promise resolving with the title of the page",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 135,
+            "description": "Removes all cookies on the actual page.",
+            "itemtype": "method",
+            "name": "deleteCookies",
+            "return": {
+                "description": "Promise resolving when all cookies are deleted",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 145,
+            "description": "Sends an http request and return its reponse.\n\nThis will execute the request from the page.",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "Request's path",
+                    "type": "String"
+                },
+                {
+                    "name": "method",
+                    "description": "HTTP method to use",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "Request's data to send in body",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the request's response",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 177,
+            "description": "Refreshes actual page.",
+            "itemtype": "method",
+            "name": "refresh",
+            "return": {
+                "description": "Promise resolving when the page is fully loaded",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\Page.js",
+            "line": 194,
+            "description": "Handles page loaded.\n\nUse this method to perform actions after the page is loaded. Typically, verify that the page is loaded by\nwaiting for elements to be present on the page.\n\nBy default it does nothing, override it to define your own behaviour.",
+            "itemtype": "method",
+            "name": "onLoaded",
+            "return": {
+                "description": "Promise resolving when the page is fully loaded",
+                "type": "Promise"
+            },
+            "class": "Page",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 44,
+            "description": "Form element to add a new entity.",
+            "itemtype": "property",
+            "name": "addFormElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 52,
+            "description": "Link to open / close form element to add a new entity.",
+            "itemtype": "property",
+            "name": "addLinkElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 60,
+            "description": "Wrapper of the add form element.\n\nThis element will be displayed when add form is displayed and hidden when add form is closed.",
+            "itemtype": "property",
+            "name": "addFormWrapperElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 71,
+            "description": "Submit button of the form to add a new entity.",
+            "itemtype": "property",
+            "name": "addButtonElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 79,
+            "description": "Table element.",
+            "itemtype": "property",
+            "name": "tableElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 87,
+            "description": "Table row elements.",
+            "itemtype": "property",
+            "name": "rowElements",
+            "type": "ElementArrayFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 95,
+            "description": "Table header elements.",
+            "itemtype": "property",
+            "name": "headerElements",
+            "type": "ElementArrayFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 103,
+            "description": "Opened line detail containing information about the opened line.",
+            "itemtype": "property",
+            "name": "lineDetailElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 111,
+            "description": "Checkbox to select all line.",
+            "itemtype": "property",
+            "name": "selectAllElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 119,
+            "description": "Main action button element to perform actions on all selected lines.",
+            "itemtype": "property",
+            "name": "actionsButtonElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 127,
+            "description": "Element holding the list of actions under main action button.",
+            "itemtype": "property",
+            "name": "actionsElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 135,
+            "description": "Dialog box.",
+            "itemtype": "property",
+            "name": "dialogElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 143,
+            "description": "Dialog box confirmation button.",
+            "itemtype": "property",
+            "name": "dialogConfirmActionButtonElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 151,
+            "description": "Dialog box cancel button.",
+            "itemtype": "property",
+            "name": "dialogCancelActionButtonElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 159,
+            "description": "Search engine form to filter lines in the table.",
+            "itemtype": "property",
+            "name": "searchFormElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 167,
+            "description": "Link to open / close search engine.",
+            "itemtype": "property",
+            "name": "searchLinkElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 175,
+            "description": "Element holding the current table page (pagination).",
+            "itemtype": "property",
+            "name": "currentPageElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 183,
+            "description": "Element holding the total number of table pages (pagination).",
+            "itemtype": "property",
+            "name": "totalPagesElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 191,
+            "description": "Element holding the total number of lines in all table pages (pagination).",
+            "itemtype": "property",
+            "name": "totalLinesElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 199,
+            "description": "Pagination links wrapper.",
+            "itemtype": "property",
+            "name": "paginationElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 207,
+            "description": "List of pagination links, including the previous and next range buttons.",
+            "itemtype": "property",
+            "name": "paginationLinkElements",
+            "type": "ElementArrayFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 215,
+            "description": "List of pagination links, excluding the previous and next range buttons.",
+            "itemtype": "property",
+            "name": "paginationPageLinkElements",
+            "type": "ElementArrayFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 223,
+            "description": "Pagination previous range link.",
+            "itemtype": "property",
+            "name": "paginationPreviousRangeElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 231,
+            "description": "Pagination next range link.",
+            "itemtype": "property",
+            "name": "paginationNextRangeElement",
+            "type": "ElementFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 239,
+            "description": "List of per page links to select the number of elements to display per table page.",
+            "itemtype": "property",
+            "name": "itemsPerPageLinkElements",
+            "type": "ElementArrayFinder",
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 251,
+            "description": "Finds a line.\n\nIterate through the given list of lines to look for the expected one.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getLineByIndex",
+            "params": [
+                {
+                    "name": "lines",
+                    "description": "The list of line elements (tr elements) to look into",
+                    "type": "Array"
+                },
+                {
+                    "name": "name",
+                    "description": "The name of the line to look for (this value will be compared to the value of each cell)",
+                    "type": "String"
+                },
+                {
+                    "name": "index",
+                    "description": "The index in lines to start from",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the tr element",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 297,
+            "description": "Finds a line by page.\n\nIterate through all lines of all pages to look for the expected line.\nIt starts at current page.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getLineByPage",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the line to look for (this value will be compared to the value of each cell)",
+                    "type": "String"
+                },
+                {
+                    "name": "totalPages",
+                    "description": "The total number of pages",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the searched line (tr element)",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 352,
+            "description": "Selects a page.\n\nLook for page link in pagination links, if page link is not in the pagination actual range, it will search for\nthe page link in the other pagination ranges.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "selectPageByRange",
+            "params": [
+                {
+                    "name": "page",
+                    "description": "The page to select (starting at 1 instead of 0)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the page is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 415,
+            "description": "Gets the index of a table column in the list of columns.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getHeaderIndex",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the header to look for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the index of the column",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 446,
+            "description": "Gets column value for a list of lines.\n\nIterates through the given list of lines and find its value in the given column.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getLineValuesByIndex",
+            "params": [
+                {
+                    "name": "lines",
+                    "description": "The lines in the page (tr elements)",
+                    "type": "Array"
+                },
+                {
+                    "name": "headerIndex",
+                    "description": "The index of the column to read",
+                    "type": "Number"
+                },
+                {
+                    "name": "index",
+                    "description": "Current line index being inspected",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with lines values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 487,
+            "description": "Gets column and field values for a list of lines.\n\nIterates through the given list of lines and get all information (column values and field values) for each line.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAllLineDetailsByIndex",
+            "params": [
+                {
+                    "name": "lines",
+                    "description": "The lines in the page (tr elements)",
+                    "type": "Array"
+                },
+                {
+                    "name": "index",
+                    "description": "Current line index being inspected",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 531,
+            "description": "Gets line column values in all pages.\n\nIterate through all lines of all pages and get column value for each line.\nIt starts at current page.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getLineValuesByPage",
+            "params": [
+                {
+                    "name": "headerIndex",
+                    "description": "The index of the column to read",
+                    "type": "Number"
+                },
+                {
+                    "name": "totalPages",
+                    "description": "The total number of pages",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with column values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 599,
+            "description": "Gets line fields values in all pages.\n\nIterate through all lines of all pages and get columns / fields values for each line.\nIt starts at current page.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAllLineDetailsByPage",
+            "params": [
+                {
+                    "name": "totalPages",
+                    "description": "The total number of pages",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 668,
+            "description": "Gets all lines in the table page except the opened one.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLinesInPage().then(function(lines) {\n      console.log(lines);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLinesInPage",
+            "return": {
+                "description": "Promise resolving with the list of lines elements in the page (tr elements)",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 705,
+            "description": "Gets a line within the current page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineInPage('My line').then(function(line) {\n      console.log(line);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineInPage",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the line to look for (each column will be compared to this value)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the line (tr element)",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 734,
+            "description": "Gets the number of lines in the current page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLinesInPageNumber().then(function(linesNumber) {\n      console.log('This page contains ' + linesNumber + ' lines');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLinesInPageNumber",
+            "return": {
+                "description": "Promise resolving with the number of lines in the page",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 756,
+            "description": "Opens add form.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.openAddForm().then(function() {\n      console.log('Add form opened');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "openAddForm",
+            "return": {
+                "description": "Promise resolving when add form is opened",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 793,
+            "description": "Closes formular to add an item.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.openAddForm();\n    page.closeAddForm().then(function() {\n      console.log('Add form closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeAddForm",
+            "return": {
+                "description": "Promise resolving when add form is closed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 832,
+            "description": "Submit formular to add an item.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.submitAddForm().then(function() {\n      console.log('Add form submitted');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "submitAddForm",
+            "return": {
+                "description": "Promise resolving when add form submit button has been clicked",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 852,
+            "description": "Gets a line.\n\nLooks for a line in all pages.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLine('My line').then(function(line) {\n      console.log(line);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLine",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the line (tr element)",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 900,
+            "description": "Gets values of a column for all lines in all pages.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineValues('Name').then(function(values) {\n     console.log(values);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineValues",
+            "params": [
+                {
+                    "name": "headerTitle",
+                    "description": "Title of the column to extract values from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the list of values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 944,
+            "description": "Gets values of a column for all lines in current page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineInPageValues('Name').then(function(values) {\n     console.log(values);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineInPageValues",
+            "params": [
+                {
+                    "name": "headerTitle",
+                    "description": "Title of the column to extract values from",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the list of values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 981,
+            "description": "Gets all column / fields values for all lines in all pages.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getAllLineDetails().then(function(data) {\n     console.log(data);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getAllLineDetails",
+            "return": {
+                "description": "Promise resolving with the list of line details",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1021,
+            "description": "Gets all column / field values of a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineDetails('My line').then(function(data) {\n      console.log(data);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineDetails",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the line details",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1054,
+            "description": "Gets all column values for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineCells('My line').then(function(data) {\n      console.log(data);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineCells",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the line column values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1083,
+            "description": "Gets all fields values for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineFieldValues('My line').then(function(data) {\n      console.log(data);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineFieldValues",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the line fields values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1131,
+            "description": "Opens a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.openLine('My line').then(function() {\n      console.log('My line opened');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "openLine",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when line is opened",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1162,
+            "description": "Closes opened line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.closeLine('My line').then(function() {\n      console.log('My line closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeLine",
+            "return": {
+                "description": "Promise resolving when line is closed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1210,
+            "description": "Tests if a line is opened.\n\nAs only one line can be opened at a time, no name is required.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.isOpenedLine().then(function(isOpened) {\n      console.log('Is a line opened ? ' + isOpened);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isOpenedLine",
+            "return": {
+                "description": "Promise resolving with a boolean indicating if a line is opened or not",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1251,
+            "description": "Selects a line by checking the line checkbox.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectLine('My line').then(function() {\n      console.log('My line is selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectLine",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when line is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1278,
+            "description": "Selects all lines.\n\nAt least, one line must be in the table.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectAllLines().then(function() {\n      console.log('All lines selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectAllLines",
+            "return": {
+                "description": "Promise resolving when all lines are selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1305,
+            "description": "Sorts lines.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.sortBy('Name', true).then(function() {\n      console.log('Lines sorted by Name');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "sortBy",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The value of the column to act on, each column will be compared to this value",
+                    "type": "String"
+                },
+                {
+                    "name": "asc",
+                    "description": "true to sort in ascendant order, false to sort in descendant order",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when column is clicked",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1362,
+            "description": "Performs an action on a single line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.performAction('My line', 'Remove').then(function() {\n      console.log('Action \"Remove\" has been performed on line \"My line\", confirmation dialog is opened');\n    });",
+                "\n\n    page.performAction('My line', 'Remove', true).then(function() {\n      console.log('\"My line\" removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "performAction",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                },
+                {
+                    "name": "action",
+                    "description": "The translated name of the action to perform",
+                    "type": "String"
+                },
+                {
+                    "name": "confirm",
+                    "description": "true to confirm the action, false otherwise",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when action is performed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1410,
+            "description": "Performs a grouped action.\n\nAt least one line must be selected.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectAllLines();\n    page.performMultipleAction('Remove').then(function() {\n      console.log('Action \"Remove\" performed on all selected lines, confirmation dialog is opened');\n    });",
+                "\n\n    page.performMultipleAction('Remove', true).then(function() {\n      console.log('All lines removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "performMultipleAction",
+            "params": [
+                {
+                    "name": "action",
+                    "description": "The translated name of the action to perform",
+                    "type": "String"
+                },
+                {
+                    "name": "confirm",
+                    "description": "true to confirm the action, false otherwise",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the action is performed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1451,
+            "description": "Accepts the confirmation dialog.\n\nConfirmation dialog must be displayed.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectAllLines();\n    page.performMultipleAction('Remove');\n    page.confirmAction().then(function() {\n      console.Log('Dialog confirmed, thus all selected lines are removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "confirmAction",
+            "return": {
+                "description": "Promise resolving when confirmation dialog has been accepted",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1480,
+            "description": "Cancels the confirmation dialog.\n\nConfirmation dialog must be displayed.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectAllLines();\n    page.performMultipleAction('Remove');\n    page.cancelAction().then(function() {\n      console.Log('Remoe action canceled');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "cancelAction",
+            "return": {
+                "description": "Promise resolving when confirmation dialog has been canceled",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1509,
+            "description": "Gets the list of available actions for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineActions('My line').then(function(actions) {\n      console.log(actions);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineActions",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving whith the list of actions",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1555,
+            "description": "Gets the list of global actions available.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getGlobalActions().then(function(actions) {\n      console.log(actions);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getGlobalActions",
+            "return": {
+                "description": "Promise resolving whith the list of global actions",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1594,
+            "description": "Searches in the list of lines using search engine.\n\nFills search fields.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n\n    var searchFieldsValues = {\n      myField: 'Value'\n    };\n\n    page.search(searchFieldsValues).then(function() {\n      console.Log('Search done');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "search",
+            "params": [
+                {
+                    "name": "fields",
+                    "description": "List of values for fields returned by method getSearchFields",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when search is done",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1632,
+            "description": "Clears search fields.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.clearSearch().then(function() {\n      console.Log('Search engine cleared');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "clearSearch",
+            "return": {
+                "description": "Promise resolving when fields are cleared",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1662,
+            "description": "Opens search engine.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.openSearchEngine().then(function() {\n      console.log('Search engine opened');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "openSearchEngine",
+            "return": {
+                "description": "Promise resolving when search engine is opened",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1700,
+            "description": "Closes search engine.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.closeSearchEngine().then(function() {\n      console.log('Search engine closed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "closeSearchEngine",
+            "return": {
+                "description": "Promise resolving when search engine is closed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1738,
+            "description": "Gets current page number.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getCurrentPage().then(function(currentPage) {\n      console.log('Current page is ' + currentPage);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getCurrentPage",
+            "return": {
+                "description": "Promise resolving with the current page (starting at 1)",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1760,
+            "description": "Gets total number of pages.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getTotalPages().then(function(totalPages) {\n      console.log('There are ' + totalPages + ' pages');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getTotalPages",
+            "return": {
+                "description": "Promise resolving with the total number of pages",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1782,
+            "description": "Gets total number of lines.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getTotalLines().then(function(totalLines) {\n      console.log('There are ' + totalLines + ' lines');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getTotalLines",
+            "return": {
+                "description": "Promise resolving with the total number of lines",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1804,
+            "description": "Gets the total number of page links.\n\nGets the number of page links in the pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getTotalPaginationLinks().then(function(totalLinks) {\n      console.log('There are ' + totalLinks + ' pagination links');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getTotalPaginationLinks",
+            "return": {
+                "description": "Promise resolving with the total number of links",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1829,
+            "description": "Selects the first page in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectFirstPage().then(function() {\n      console.log('First page selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectFirstPage",
+            "return": {
+                "description": "Promise resolving when first page is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1849,
+            "description": "Selects the last page in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectLastPage().then(function() {\n      console.log('Last page selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectLastPage",
+            "return": {
+                "description": "Promise resolving when last page is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1873,
+            "description": "Selects a page in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectPage(5).then(function() {\n      console.log('Page 5 selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectPage",
+            "params": [
+                {
+                    "name": "page",
+                    "description": "The page to select (starting at 1)",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when page is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1897,
+            "description": "Selects first page range in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectFirstPageRange().then(function() {\n      console.log('First range selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectFirstPageRange",
+            "return": {
+                "description": "Promise resolving when first page range is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1929,
+            "description": "Selects last page range in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectLastPageRange().then(function() {\n      console.log('Last range selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectLastPageRange",
+            "return": {
+                "description": "Promise resolving when last page range is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1963,
+            "description": "Selects previous page range in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectPreviousPageRange().then(function() {\n      console.log('Previous range selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectPreviousPageRange",
+            "return": {
+                "description": "Promise resolving when previous page range is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 1983,
+            "description": "Selects next page range in pagination.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.selectNextPageRange().then(function() {\n      console.log('Next range selected');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "selectNextPageRange",
+            "return": {
+                "description": "Promise resolving when next page range is selected",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2003,
+            "description": "Tests if previous page range link is enabled.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.isPreviousRangeLinkEnabled().then(function(isEnabled) {\n      console.log('Is previous range link enabled ?' + isEnabled);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isPreviousRangeLinkEnabled",
+            "return": {
+                "description": "Promise resolving whith a boolean indicating if the previous range link is enabled",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2026,
+            "description": "Tests if next page range link is enabled.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.isNextRangeLinkEnabled().then(function(isEnabled) {\n      console.log('Is next range link enabled ?' + isEnabled);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isNextRangeLinkEnabled",
+            "return": {
+                "description": "Promise resolving whith a boolean indicating if the next range link is enabled",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2049,
+            "description": "Sets the desired number of lines to display in the table.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.setLinesNumber(20).then(function() {\n      console.log('20 lines are now displayed per page');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setLinesNumber",
+            "params": [
+                {
+                    "name": "linesNumbers",
+                    "description": "Either 5, 10, 20 or 30",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the expected number of lines is set",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2103,
+            "description": "Moves the cursor over the \"select all\" checkbox to display the information popover.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.setSelectAllMouseOver().then(function() {\n      console.log('Mouse over the \"select all\" checkbox');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "setSelectAllMouseOver",
+            "return": {
+                "description": "Promise resolving when the mouse is over the \"select all\" checkbox",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2129,
+            "description": "Tests if a header exists.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.isTableHeader('Action').then(function(isHeader) {\n      console.log('Is there a column title named \"Action\" ? ' + isHeader);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isTableHeader",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The title of the header to look for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with a boolean indicating if the table header exists or not",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2164,
+            "description": "Gets the index of a header in the list of headers.\n\nBe careful, the header index starts at 1 (not 0) due to the checkboxes occupying first column on each line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getTableHeaderIndex('Action').then(function(index) {\n      console.log('Action header index is ' + index);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getTableHeaderIndex",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The title of the header to look for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the index of the header",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2210,
+            "description": "Removes a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.removeLine('My line').then(function() {\n      console.log('Line removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "removeLine",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the line has been removed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2232,
+            "description": "Removes all lines in the page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.removeAllLinesInPage().then(function() {\n      console.log('All lines in the page have been removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "removeAllLinesInPage",
+            "return": {
+                "description": "Promise resolving when lines have been removed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2256,
+            "description": "Removes all selected lines in the page.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.removeAllLinesInPage().then(function() {\n      console.log('Selected lines in the page have been removed');\n    });"
+            ],
+            "itemtype": "method",
+            "name": "removeAllSelectedLinesInPage",
+            "return": {
+                "description": "Promise resolving when lines have been removed",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2276,
+            "description": "Adds multiple lines at the same time.\n\nThis method bypass the web browser to directly add lines into database.\nUsing this method will reload the page.",
+            "itemtype": "method",
+            "name": "addLinesByPass",
+            "params": [
+                {
+                    "name": "lines",
+                    "description": "A list of lines to add",
+                    "type": "Array"
+                },
+                {
+                    "name": "refresh",
+                    "description": "Request for a refresh after adding lines",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when lines are added and browser page has been reloaded",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2340,
+            "description": "Adds multiple lines at the same time with automatic index.\n\nThis method bypass the web browser to directly add lines into database.\nUsing this method will reload the page.\n\nAll created lines will have the same name suffixed by the index.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.addLinesByPassAuto('My line', 2).then(function(lines) {\n      console.log('Line \"My line 0\" created');\n      console.log('Line \"My line 1\" created');\n      console.log(lines);\n    });",
+                "\n\n    page.addLinesByPassAuto('My line', 2, 2).then(function(lines) {\n      console.log('Line \"My line 2\" created');\n      console.log('Line \"My line 3\" created');\n      console.log(lines);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "addLinesByPassAuto",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "Base name of the lines to add",
+                    "type": "String"
+                },
+                {
+                    "name": "total",
+                    "description": "Number of lines to add",
+                    "type": "Number"
+                },
+                {
+                    "name": "offset",
+                    "description": "Index to start from for the name suffix",
+                    "type": "Number",
+                    "optional": true,
+                    "optdefault": "0"
+                },
+                {
+                    "name": "refresh",
+                    "description": "Request for a refresh after adding lines",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the added lines and when browser page has been reloaded",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2385,
+            "description": "Removes multiple lines at the same time.\n\nThis method bypass the web browser to directly remove lines from database.\nUsing this method will reload the page.",
+            "itemtype": "method",
+            "name": "removeLinesByPass",
+            "params": [
+                {
+                    "name": "lines",
+                    "description": "A list of lines",
+                    "type": "Array"
+                },
+                {
+                    "name": "refresh",
+                    "description": "Request for a refresh after adding lines",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "true"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when lines are removed and browser page has been reloaded",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2430,
+            "description": "Tests if the edition form is in error.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.isEditionFormOnError().then(function(isOnError) {\n      console.log('Is edition form on error ? ' + isOnError);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "isEditionFormOnError",
+            "return": {
+                "description": "Promise resolving with a boolean indicating if the edition form is on error",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2452,
+            "description": "Gets the list of edition form error messages.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getEditionFormErrors().then(function(errors) {\n      console.log(errors);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getEditionFormErrors",
+            "return": {
+                "description": "Promise resolving with the list of errors",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2490,
+            "description": "Gets a field text for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n\n    // Get text value of the \"title\" field for the line \"Line name\"\n    // \"title\" field must be defined by getEditFormFields() method\n    page.getLineFieldText('Line name', 'title').then(function(text) {\n      console.log(text);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineFieldText",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                },
+                {
+                    "name": "field",
+                    "description": "The field id as described by getEditFormFields() method",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the field text",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2528,
+            "description": "Gets column value for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n\n    // Get value of the third column for the line \"Line name\"\n    page.getLineCellValue('Line name', 3).then(function(text) {\n      console.log(text);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineCellValue",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                },
+                {
+                    "name": "index",
+                    "description": "Index of the column to read",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the cell value",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2555,
+            "description": "Gets all column values for a line.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.getLineCellValues('Line name').then(function(cellValues) {\n      console.log(cellValues);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getLineCellValues",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with all cell values",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2593,
+            "description": "Tests if line cells contain a text.",
+            "example": [
+                "\n\n    // With MyTablePage extending TablePage\n    var page = new MyTablePage();\n    page.logAsAdmin();\n    page.load();\n    page.lineCellContain('Line name', 'Text').then(function(contain) {\n      console.log('Does my line \"Line name\" have a cell containing \"Text\" ? ' + contain);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "lineCellContain",
+            "params": [
+                {
+                    "name": "lineFinder",
+                    "description": "The name of the line (each column will be compared to this value) or\nthe line element",
+                    "type": "String|ElementFinder"
+                },
+                {
+                    "name": "value",
+                    "description": "Value to look for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with a boolean indicating if the given value correspond to a cell",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2630,
+            "description": "Adds a new line.\n\nUser must be logged and have permission to create line on this page.",
+            "itemtype": "method",
+            "name": "addLine",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "Line name",
+                    "type": "String"
+                },
+                {
+                    "name": "data",
+                    "description": "Additional data depending on page type",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the line has been added",
+                "type": "Promise"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2644,
+            "description": "Gets search engine fields.",
+            "params": [
+                {
+                    "name": "Search",
+                    "description": "engine form element",
+                    "type": "ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "The list of fields",
+                "type": "Object"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2654,
+            "description": "Gets add form fields.",
+            "itemtype": "method",
+            "name": "getAddFormFields",
+            "params": [
+                {
+                    "name": "Add",
+                    "description": "form element",
+                    "type": "ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "The list of fields",
+                "type": "Object"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\pages\\TablePage.js",
+            "line": 2665,
+            "description": "Gets edit form fields.",
+            "itemtype": "method",
+            "name": "getEditFormFields",
+            "params": [
+                {
+                    "name": "Edit",
+                    "description": "form element",
+                    "type": "ElementFinder"
+                }
+            ],
+            "return": {
+                "description": "The list of fields",
+                "type": "Obect"
+            },
+            "class": "TablePage",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\plugins\\screenshotPlugin.js",
+            "line": 11,
+            "description": "Generates a screenshot each time a test failed.\n\nFor more more information about plugins refer to protractor's documentation available at\nhttps://github.com/angular/protractor/blob/master/docs/plugins.md",
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 14,
+            "description": "Writes screenshot to a file.",
+            "access": "private",
+            "tagname": "",
+            "static": 1,
+            "itemtype": "method",
+            "name": "writeScreenShot",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Screenshot data",
+                    "type": "String"
+                },
+                {
+                    "name": "file",
+                    "description": "Screenshot final file path",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "The function to call when done\n  - **Error** The error if an error occurred, null otherwise",
+                    "type": "Function"
+                }
+            ],
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 32,
+            "description": "Clicks on an element.\n\nThere are many issues with click events in web drivers, the same click is sometimes performed, and sometimes not.\nMoving the cursor to the element then performing a click seems to be more stable.\nIt also checks if the element is clickable before clicking on it.\n\nAlso the banner in position fix prevent the driver to click on elements behind it. To avoid this problem, scroll\nup to the element minus the height of the banner.",
+            "static": 1,
+            "itemtype": "method",
+            "name": "click",
+            "params": [
+                {
+                    "name": "elementFinder",
+                    "description": "The element to click",
+                    "type": "ElementFinder"
+                },
+                {
+                    "name": "delay",
+                    "description": "The delay in milliseconds to wait before clicking on the element",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when element is clicked",
+                "type": "Promise"
+            },
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 76,
+            "description": "Sets browser's size.",
+            "example": [
+                "\n\n    var browserAPI = require('@openveo/test').e2e.browser;\n    browserAPI.setSize(800, 600);"
+            ],
+            "static": 1,
+            "itemtype": "method",
+            "name": "setSize",
+            "params": [
+                {
+                    "name": "width",
+                    "description": "The browser width in px",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "The browser height in px",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the browser size is set",
+                "type": "Promise"
+            },
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 94,
+            "description": "Sets process.protractorConf to the configuration of the actual capability.",
+            "example": [
+                "\n\n    var browserAPI = require('@openveo/test').e2e.browser;\n    browserAPI.init();"
+            ],
+            "static": 1,
+            "itemtype": "method",
+            "name": "init",
+            "return": {
+                "description": "Promise resolving when init is done",
+                "type": "Promise"
+            },
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 112,
+            "description": "Disables all animations.",
+            "example": [
+                "\n\n    var browserAPI = require('@openveo/test').e2e.browser;\n    browserAPI.deactivateAnimations();"
+            ],
+            "static": 1,
+            "itemtype": "method",
+            "name": "deactivateAnimations",
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\browser.js",
+            "line": 142,
+            "description": "Takes a screenshot of the actual browser state.",
+            "example": [
+                "\n\n    var browserAPI = require('@openveo/test').e2e.browser;\n    browserAPI.takeScreenshot('/tmp', 'myScreenshot');"
+            ],
+            "static": 1,
+            "itemtype": "method",
+            "name": "takeScreenshot",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The screenshot file path",
+                    "type": "String"
+                },
+                {
+                    "name": "fileName",
+                    "description": "The screenshot file name without the extension",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving when the capture is made",
+                "type": "Promise"
+            },
+            "class": "browser",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\i18n.js",
+            "line": 12,
+            "description": "Gets translations.",
+            "example": [
+                "\n\n    var i18n = require('@openveo/test').e2e.i18n;\n\n    i18n.getTranslations('login', 'en').then(function(translations) {\n      console.log(translations);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getTranslations",
+            "static": 1,
+            "params": [
+                {
+                    "name": "dictionary",
+                    "description": "The name of the dictionary, this is the name of the dictionary file without\nextension",
+                    "type": "String"
+                },
+                {
+                    "name": "languageCode",
+                    "description": "The language code (e.g. en)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the list of translations",
+                "type": "Promise"
+            },
+            "class": "i18n",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\e2e\\i18n.js",
+            "line": 40,
+            "description": "Gets the list of back end translations.",
+            "example": [
+                "\n\n    var i18n = require('@openveo/test').e2e.i18n;\n\n    i18n.getBackEndTranslations('en').then(function(backEndTranslations) {\n      console.log(backEndTranslations);\n    });"
+            ],
+            "itemtype": "method",
+            "name": "getBackEndTranslations",
+            "static": 1,
+            "params": [
+                {
+                    "name": "languageCode",
+                    "description": "The language code (e.g. en)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Promise resolving with the list of translations",
+                "type": "Promise"
+            },
+            "class": "i18n",
+            "module": "e2e"
+        },
+        {
+            "file": "lib\\unit\\generator.js",
+            "line": 14,
+            "description": "Generates and set up a database which always succeed.",
+            "example": [
+                "\n\n    var ut = require('@openveo/test').unit.generator;\n    ut.generateSuccessDatabase();"
+            ],
+            "itemtype": "method",
+            "name": "generateSuccessDatabase",
+            "class": "generator",
+            "module": "unit"
+        },
+        {
+            "file": "lib\\unit\\generator.js",
+            "line": 29,
+            "description": "Generates and set up a database which always fails.",
+            "example": [
+                "\n\n    var ut = require('@openveo/test').unit.generator;\n    ut.generateFailDatabase();"
+            ],
+            "itemtype": "method",
+            "name": "generateFailDatabase",
+            "class": "generator",
+            "module": "unit"
+        },
+        {
+            "file": "lib\\unit\\generator.js",
+            "line": 44,
+            "description": "Generates fake web service scopes into application storage.",
+            "example": [
+                "\n\n    var ut = require('@openveo/test').unit.generator;\n    ut.generateWebServiceScopes();"
+            ],
+            "itemtype": "method",
+            "name": "generateWebServiceScopes",
+            "class": "generator",
+            "module": "unit"
+        },
+        {
+            "file": "lib\\unit\\generator.js",
+            "line": 71,
+            "description": "Generates fake permissions into application storage.",
+            "example": [
+                "\n\n    var ut = require('@openveo/test').unit.generator;\n    ut.generatePermissions();"
+            ],
+            "itemtype": "method",
+            "name": "generatePermissions",
+            "class": "generator",
+            "module": "unit"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nSends an http request and return its reponse.\n\nThis will execute the request from the page.",
+            "line": " lib\\e2e\\pages\\Page.js:145"
+        },
+        {
+            "message": "Missing item type\nGets search engine fields.",
+            "line": " lib\\e2e\\pages\\TablePage.js:2644"
+        },
+        {
+            "message": "Missing item type\nGenerates a screenshot each time a test failed.\n\nFor more more information about plugins refer to protractor's documentation available at\nhttps://github.com/angular/protractor/blob/master/docs/plugins.md",
+            "line": " lib\\e2e\\plugins\\screenshotPlugin.js:11"
+        }
+    ]
+}

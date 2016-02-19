@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>lib\e2e\browser.js - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 2.0.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/generator.html">generator</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib\e2e\browser.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * Helps using some protractor browser features.
+ *
+ * @module e2e
+ * @class browser
+ */
+
+var path = require(&#x27;path&#x27;);
+var fs = require(&#x27;fs&#x27;);
+var openVeoAPI = require(&#x27;@openveo/api&#x27;);
+
+/**
+ * Writes screenshot to a file.
+ *
+ * @private
+ * @static
+ * @method writeScreenShot
+ * @param {String} data Screenshot data
+ * @param {String} file Screenshot final file path
+ * @param {Function} callback The function to call when done
+ *   - **Error** The error if an error occurred, null otherwise
+ */
+function writeScreenShot(data, file, callback) {
+  var stream = fs.createWriteStream(file);
+  stream.write(new Buffer(data, &#x27;base64&#x27;));
+  stream.end();
+  stream.on(&#x27;finish&#x27;, callback);
+}
+
+/**
+ * Clicks on an element.
+ *
+ * There are many issues with click events in web drivers, the same click is sometimes performed, and sometimes not.
+ * Moving the cursor to the element then performing a click seems to be more stable.
+ * It also checks if the element is clickable before clicking on it.
+ *
+ * Also the banner in position fix prevent the driver to click on elements behind it. To avoid this problem, scroll
+ * up to the element minus the height of the banner.
+ *
+ * @static
+ * @method click
+ * @param {ElementFinder} elementFinder The element to click
+ * @param {Number} [delay] The delay in milliseconds to wait before clicking on the element
+ * @return {Promise} Promise resolving when element is clicked
+ */
+module.exports.click = function(elementFinder, delay) {
+  return browser.waitForAngular().then(function() {
+    return elementFinder.getLocation();
+  }).then(function(coordinates) {
+    var pageElement = element(by.id(&#x27;page-content-wrapper&#x27;));
+    var script = &#x27;arguments[0].scrollTop = &#x27; + Math.max(coordinates.y - 50, 0) + &#x27;;&#x27;;
+
+    browser.executeScript(script, pageElement.getWebElement());
+    return elementFinder.getTagName();
+  }).then(function(tagName) {
+
+    // Select options clicks are automatic, clicking on the option element will automatically perform several
+    // actions : Moving to select element, clicking on the select element, moving to option element and
+    // clicking on the action element
+    if (tagName === &#x27;option&#x27;)
+      return elementFinder.click();
+    else {
+      browser.wait(protractor.ExpectedConditions.elementToBeClickable(elementFinder), 1000, &#x27;Element is not clickable&#x27;);
+      browser.actions().mouseMove(elementFinder).perform();
+
+      if (delay)
+        browser.sleep(delay);
+
+      return browser.actions().click().perform();
+    }
+  });
+};
+
+/**
+ * Sets browser&#x27;s size.
+ *
+ * @example
+ *
+ *     var browserAPI = require(&#x27;@openveo/test&#x27;).e2e.browser;
+ *     browserAPI.setSize(800, 600);
+ *
+ * @static
+ * @method setSize
+ * @param {Number} width The browser width in px
+ * @param {Number} height The browser height in px
+ * @return {Promise} Promise resolving when the browser size is set
+ */
+module.exports.setSize = function(width, height) {
+  return browser.driver.manage().window().setSize(width, height);
+};
+
+/**
+ * Sets process.protractorConf to the configuration of the actual capability.
+ *
+ * @example
+ *
+ *     var browserAPI = require(&#x27;@openveo/test&#x27;).e2e.browser;
+ *     browserAPI.init();
+ *
+ * @static
+ * @method init
+ * @return {Promise} Promise resolving when init is done
+ */
+module.exports.init = function() {
+  return browser.getProcessedConfig().then(function(conf) {
+    process.protractorConf = conf;
+  });
+};
+
+/**
+ * Disables all animations.
+ *
+ * @example
+ *
+ *     var browserAPI = require(&#x27;@openveo/test&#x27;).e2e.browser;
+ *     browserAPI.deactivateAnimations();
+ *
+ * @static
+ * @method deactivateAnimations
+ */
+module.exports.deactivateAnimations = function() {
+  var disableCssAnimate = function() {
+    angular.module(&#x27;disableCssAnimate&#x27;, []).run(function() {
+      var style = document.createElement(&#x27;style&#x27;);
+      style.type = &#x27;text/css&#x27;;
+      style.innerHTML = &#x27;* {&#x27; +
+        &#x27;-webkit-transition: none !important;&#x27; +
+        &#x27;-moz-transition: none !important;&#x27; +
+        &#x27;-o-transition: none !important;&#x27; +
+        &#x27;-ms-transition: none !important;&#x27; +
+        &#x27;transition: none !important;&#x27; +
+      &#x27;}&#x27;;
+      document.getElementsByTagName(&#x27;head&#x27;)[0].appendChild(style);
+    });
+  };
+
+  browser.addMockModule(&#x27;disableCssAnimate&#x27;, disableCssAnimate);
+};
+
+/**
+ * Takes a screenshot of the actual browser state.
+ *
+ * @example
+ *
+ *     var browserAPI = require(&#x27;@openveo/test&#x27;).e2e.browser;
+ *     browserAPI.takeScreenshot(&#x27;/tmp&#x27;, &#x27;myScreenshot&#x27;);
+ *
+ * @static
+ * @method takeScreenshot
+ * @param {String} file The screenshot file path
+ * @param {String} fileName The screenshot file name without the extension
+ * @return {Promise} Promise resolving when the capture is made
+ */
+module.exports.takeScreenshot = function(filePath, fileName) {
+  return browser.takeScreenshot().then(function(png) {
+    var deferred = protractor.promise.defer();
+
+    openVeoAPI.fileSystem.mkdir(filePath, function(error) {
+      if (!error)
+        writeScreenShot(png, path.join(filePath, fileName + &#x27;.png&#x27;), function(error) {
+          if (error)
+            deferred.reject(error);
+          else
+            deferred.fulfill();
+        });
+    });
+
+    return browser.controlFlow().execute(function() {
+      return deferred.promise;
+    });
+
+  });
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
