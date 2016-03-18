@@ -26,7 +26,8 @@
     "yuidoc-theme-blue": ">=0.1.9",
     "pre-commit": ">=1.1.1",
     "chai": ">=1.10.0",
-    "chai-as-promised": ">=5.1.0"
+    "chai-as-promised": ">=5.1.0",
+    "htmlparser2": ">=3.9.0"
   },
   "scripts": {
     "eslint": "grunt eslint"
