@@ -20,13 +20,13 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt-eslint": "18.0.0",
-    "grunt-contrib-yuidoc": "0.8.0",
-    "grunt-gh-pages": "0.10.0",
+    "grunt-eslint": "18.1.0",
+    "grunt-contrib-yuidoc": "1.0.0",
+    "grunt-gh-pages": "1.1.0",
     "yuidoc-theme-blue": "0.1.9",
-    "pre-commit": "1.1.1",
-    "chai": "1.10.0",
-    "chai-as-promised": "5.1.0",
+    "pre-commit": "1.1.2",
+    "chai": "3.5.0",
+    "chai-as-promised": "5.3.0",
     "htmlparser2": "3.9.0"
   },
   "scripts": {
