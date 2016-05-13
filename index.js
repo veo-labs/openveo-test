@@ -1,6 +1,5 @@
 'use strict';
 
-// Module dependencies
 var path = require('path');
 
 // Set module root directory
@@ -11,3 +10,4 @@ process.requireTest = function(filePath) {
 
 module.exports.unit = process.requireTest('lib/unit/unit.js');
 module.exports.e2e = process.requireTest('lib/e2e/e2e.js');
+module.exports.util = process.requireTest('lib/util.js');
