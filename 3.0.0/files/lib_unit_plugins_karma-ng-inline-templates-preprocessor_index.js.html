@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>lib/unit/plugins/karma-ng-inline-templates-preprocessor/index.js - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 3.0.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/CheckboxField.html">CheckboxField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/generator.html">generator</a></li>
+                                <li><a href="../classes/Helper.html">Helper</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TagsField.html">TagsField</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                                <li><a href="../classes/util.html">util</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/unit/plugins/karma-ng-inline-templates-preprocessor/index.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+var htmlparser = require(&#x27;htmlparser2&#x27;);
+
+/**
+ * Defines an inline template preprocessor.
+ *
+ * @example
+ *
+ *     // Configuration example to put in your karma configuration file
+ *     {
+ *       moduleName: &#x27;my-inline-templates&#x27; // Name of the AngularJS module that will be created to hold templates
+ *     }
+ *
+ * @example
+ *
+ *     // Don&#x27;t forget to load the module before executing your tests
+ *     beforeEach(function() {
+ *       module(&#x27;my-inline-templates&#x27;);
+ *     });
+ *
+ * @param {Object} logger Karma logger
+ * @param {Object} config Inline templates preprocessor configuration
+ * @return {Function} Preprocessor function to call for each file
+ */
+var inlineTemplatesProcessor = function(logger, config) {
+  var log = logger.create(&#x27;preprocessor.ngInlineTemplates&#x27;);
+  config = typeof config === &#x27;object&#x27; ? config : {};
+
+  /**
+   * Defines inline template preprocessor function.
+   *
+   * @param {String} content The content of the file to preprocess
+   * @param {Array} file Information about the file
+   * @param {Function} done Function to call when preprocess of the file is done
+   */
+  return function(content, file, done) {
+    log.debug(&#x27;Processing file &#x27; + file.path);
+
+    // Change file extension to js to make it executed in the browser
+    file.path = file.path.replace(&#x27;.html&#x27;, &#x27;.js&#x27;);
+    var script = false;
+    var scriptId = &#x27;&#x27;;
+    var scriptContent = &#x27;&#x27;;
+    var scripts = {};
+
+    // Instanciate an HTML parser
+    var parser = new htmlparser.Parser({
+
+      // Handle opening tags
+      onopentag: function(tagName, attributes) {
+
+        // Start a new AngularJS template
+        if (tagName === &#x27;script&#x27; &amp;&amp; attributes.type === &#x27;text/ng-template&#x27; &amp;&amp; attributes.id) {
+          log.debug(&#x27;Found AngularJS inline template &#x27; + attributes.id + &#x27; in &#x27; + file.originalPath);
+          script = true;
+          scriptId = attributes.id;
+        }
+
+      },
+
+      // Handle tags content
+      ontext: function(text) {
+
+        // Store script content
+        if (script)
+          scriptContent += text;
+
+      },
+
+      // Handle closing tags
+      onclosetag: function(tagName) {
+
+        // End AngularJS template
+        if (tagName === &#x27;script&#x27; &amp;&amp; script) {
+          script = false;
+          scripts[scriptId] = scriptContent;
+          scriptContent = &#x27;&#x27;;
+        }
+
+      },
+
+      // End of file
+      onend: function() {
+        var moduleName = config.moduleName || &#x27;inline-templates&#x27;;
+
+        // Build a new AngularJS module with a run function
+        var HTML = &#x27;(function() { \n&#x27; +
+        &#x27;var module; \n&#x27; +
+        &#x27;try { \n&#x27; +
+          &#x27;module = angular.module(\&#x27;&#x27; + moduleName + &#x27;\&#x27;); \n&#x27; +
+        &#x27;} \n&#x27; +
+        &#x27;catch(error) { \n&#x27; +
+          &#x27;module = angular.module(\&#x27;&#x27; + moduleName + &#x27;\&#x27;, []); \n&#x27; +
+        &#x27;} \n&#x27; +
+        &#x27;module.run([\&#x27;$templateCache\&#x27;, function($templateCache) { \n&#x27;;
+
+        // Add every inline template into template cache
+        for (var id in scripts) {
+
+          scripts[id] = scripts[id]
+            .replace(/\\/g, &#x27;\\\\&#x27;)
+            .replace(/&#x27;/g, &#x27;\\\&#x27;&#x27;)
+            .replace(/\r?\n/g, &#x27;\\n\&#x27; +\n    \&#x27;&#x27;);
+
+          HTML += &#x27;$templateCache.put(\&#x27;&#x27; + id + &#x27;\&#x27;, \&#x27;&#x27; + scripts[id] + &#x27;\&#x27;);\n&#x27;;
+        }
+
+        // End run function and module declarations
+        HTML += &#x27;}]);\n })();\n&#x27;;
+
+        // Return the preprocessed output
+        done(HTML);
+      }
+    }, {
+      decodeEntities: true
+    });
+
+    // Write file content to parser
+    parser.write(content);
+    parser.end();
+
+  };
+
+};
+
+inlineTemplatesProcessor.$inject = [&#x27;logger&#x27;, &#x27;config.ngInlineTemplatesPreprocessor&#x27;];
+
+module.exports = {
+  &#x27;preprocessor:ng-inline-templates&#x27;: [&#x27;factory&#x27;, inlineTemplatesProcessor]
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
