@@ -1,3 +1,9 @@
+# 3.0.0 / 2016-05-30
+- Update e2e tools to introduce helpers and models (Entity and ContentEntity)
+- Update package dependencies
+- Update translations due to openveo-api new interface
+- Add e2e test for form fields (tags, checkbox...)
+
 # 2.0.0 / 2016-02-19
 
 - Add e2e tools to help write automated end to end tests using protractor. Consequently openveo-test is now split in 2 : the unit tests library and the end to end tests library. Unit test generator, which used to be accessible through require('@openveo/test').generator, is now accessible through require('@openveo/test').unit.generator
