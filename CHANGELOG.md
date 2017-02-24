@@ -1,21 +1,26 @@
 # 4.0.0 /
 
 ## BUG FIXES
+
 - End to end tests using e2e.TableAssert were failing if chai or chai-as-promised module was missing
 - Unit tests using ut.inlineTemplatesPreprocessor were throwing an error due to missing htmlparser2 module
 
 ## BREAKING CHANGES
+
 - require('@openveo/test').e2e classes' properties are now unalterable
 - Remove require('@openveo/test').ut.generator
+- End to end tests API now uses "query" instead of "name" as the search engine field in TableAssert
 - Drop support for Node.js &lt;7.4.0
 - Drop support for NPM &lt;4.0.5
 
 ## DEPENDENCIES
+
 - **grunt-eslint** has been updated from 18.1.0 to **19.0.0**
 - **pre-commit** has been updated from 1.1.2 to **1.2.2**
 - **grunt-gh-pages** has been updated from 1.1.0 to **2.0.0**
 
 # 3.0.0 / 2016-05-30
+
 - Update e2e tools to introduce helpers and models (Entity and ContentEntity)
 - Update package dependencies
 - Update translations due to openveo-api new interface
