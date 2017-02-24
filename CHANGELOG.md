@@ -4,6 +4,7 @@
 
 - End to end tests using e2e.TableAssert were failing if chai or chai-as-promised module was missing
 - Unit tests using ut.inlineTemplatesPreprocessor were throwing an error due to missing htmlparser2 module
+- Fix end to end API "BackEndPage.openSubMenu" and "BackEndPage.closeSubMenu" which failed if one of the first level menu items didn't have a sub menu
 
 ## BREAKING CHANGES
 
