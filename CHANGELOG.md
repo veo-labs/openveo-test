@@ -1,11 +1,5 @@
 # 4.0.0 /
 
-## BUG FIXES
-
-- End to end tests using e2e.TableAssert were failing if chai or chai-as-promised module was missing
-- Unit tests using ut.inlineTemplatesPreprocessor were throwing an error due to missing htmlparser2 module
-- Fix end to end API "BackEndPage.openSubMenu" and "BackEndPage.closeSubMenu" which failed if one of the first level menu items didn't have a sub menu
-
 ## BREAKING CHANGES
 
 - require('@openveo/test').e2e classes' properties are now unalterable
@@ -13,6 +7,16 @@
 - End to end tests API now uses "query" instead of "name" as the search engine field in TableAssert
 - Drop support for Node.js &lt;7.4.0
 - Drop support for NPM &lt;4.0.5
+
+## NEW FEATURES
+
+- Add TinyMCEField field type to require('@openveo/test').e2e.fields
+
+## BUG FIXES
+
+- End to end tests using e2e.TableAssert were failing if chai or chai-as-promised module was missing
+- Unit tests using ut.inlineTemplatesPreprocessor were throwing an error due to missing htmlparser2 module
+- Fix end to end API "BackEndPage.openSubMenu" and "BackEndPage.closeSubMenu" which failed if one of the first level menu items didn't have a sub menu
 
 ## DEPENDENCIES
 
