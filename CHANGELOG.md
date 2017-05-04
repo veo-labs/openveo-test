@@ -1,3 +1,9 @@
+# 4.0.1
+
+## BUG FIXES
+
+- Fix documentation link
+
 # 4.0.0 / 2017-05-04
 
 ## BREAKING CHANGES
