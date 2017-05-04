@@ -1,6 +1,6 @@
 {
   "name": "@openveo/test",
-  "version": "4.0.0-RC1",
+  "version": "4.0.0",
   "description": "Test API for OpenVeo unit tests",
   "keywords": [
     "openveo",
@@ -19,7 +19,7 @@
     "url": "https://github.com/veo-labs/openveo-test.git"
   },
   "dependencies": {
-    "@openveo/api": "4.0.0-RC2",
+    "@openveo/api": "4.0.0",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "htmlparser2": "3.9.2",
