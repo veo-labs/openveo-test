@@ -1,4 +1,10 @@
-# 4.0.1 - 2017-05-04
+# 4.0.2
+
+## BUG FIXES
+
+- Authorize future minor versions of @openveo/api
+
+# 4.0.1 / 2017-05-04
 
 ## BUG FIXES
 
