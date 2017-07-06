@@ -3,6 +3,7 @@
 ## NEW FEATURES
 
 - require('@openveo/test').e2e.pages.BackEndPage.getLevel1MenuItems() is now capable of getting the total list of level 1 menu items, just don't specify the itemName parameter
+- Add getLevel2MenuItems and isSubMenuOpened on require('@openveo/test').e2e.pages.BackEndPage to respectively be able to get level 2 menu items and test if a sub menu is opened
 
 ## BUG FIXES
 
