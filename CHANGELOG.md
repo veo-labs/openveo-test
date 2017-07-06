@@ -1,3 +1,9 @@
+# 4.0.3 /
+
+## BUG FIXES
+
+- Fix require('@openveo/test').e2e.pages.BackEndPage.clickMenu(). Promise could be rejected even if the element was found and clicked
+
 # 4.0.2 / 2017-05-04
 
 ## BUG FIXES
