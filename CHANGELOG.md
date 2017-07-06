@@ -8,6 +8,7 @@
 ## BUG FIXES
 
 - Fix require('@openveo/test').e2e.pages.BackEndPage.clickMenu(). Promise could be rejected even if the element was found and clicked
+- Fix require('@openveo/test').e2e.fields.TagsField.isOnError() and require('@openveo/test').e2e.fields.TextField.isOnError() which were always resolving to false
 
 # 4.0.2 / 2017-05-04
 
