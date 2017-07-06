@@ -1,4 +1,8 @@
-# 4.0.3 /
+# 4.1.0 /
+
+## NEW FEATURES
+
+- require('@openveo/test').e2e.pages.BackEndPage.getLevel1MenuItems() is now capable of getting the total list of level 1 menu items, just don't specify the itemName parameter
 
 ## BUG FIXES
 
