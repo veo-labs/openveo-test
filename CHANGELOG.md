@@ -6,6 +6,7 @@
 - Add getLevel2MenuItems and isSubMenuOpened on require('@openveo/test').e2e.pages.BackEndPage to respectively be able to get level 2 menu items and test if a sub menu is opened
 - Add require('@openveo/test').e2e.pages.TablePage.isSelectedLine() to test if a line is selected
 - Add require('@openveo/test').e2e.pages.TablePage.deselectLine() to deselect a line
+- Add require('@openveo/test').e2e.helpers.Helper.translate() to translate a dictionary key
 
 ## BUG FIXES
 
