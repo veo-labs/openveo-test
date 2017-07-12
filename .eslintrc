@@ -28,9 +28,6 @@
     // Disallow null comparisons
     "no-eq-null": 2,
 
-    // Disallow eval()
-    "no-eval": 2,
-
     // Disallow adding to native types
     "no-extend-native": 2,
 
