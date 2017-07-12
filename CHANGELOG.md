@@ -7,6 +7,7 @@
 - Add require('@openveo/test').e2e.pages.TablePage.isSelectedLine() to test if a line is selected
 - Add require('@openveo/test').e2e.pages.TablePage.deselectLine() to deselect a line
 - Add require('@openveo/test').e2e.helpers.Helper.translate() to translate a dictionary key
+- Add require('@openveo/test').e2e.fields.CheckboxesField.getOptions() to get the list of checkboxes labels
 
 ## BUG FIXES
 
