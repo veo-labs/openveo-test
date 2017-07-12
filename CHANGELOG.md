@@ -12,6 +12,7 @@
 - Fix require('@openveo/test').e2e.pages.BackEndPage.clickMenu(). Promise could be rejected even if the element was found and clicked
 - Fix require('@openveo/test').e2e.fields.TagsField.isOnError() and require('@openveo/test').e2e.fields.TextField.isOnError() which were always resolving to false
 - Fix require('@openveo/test').e2e.fields.TablePage.selectLine(). When line was already selected the line was unselected
+- Fix require('@openveo/test').e2e.fields.TablePage.selectAllLines(). When global checkbox was already checked it was unchecked
 
 ## DEPENDENCIES
 
