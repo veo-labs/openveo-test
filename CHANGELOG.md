@@ -14,6 +14,7 @@
 - Fix require('@openveo/test').e2e.fields.TablePage.selectLine(). When line was already selected the line was unselected
 - Fix require('@openveo/test').e2e.fields.TablePage.selectAllLines(). When global checkbox was already checked it was unchecked
 - Fix require('@openveo/test').e2e.fields.TablePage.getLineActions(). It wasn't closing the action dropdown
+- Improve e2e functions stability by making sure they are treated just like other Protractor instructions
 
 ## DEPENDENCIES
 
