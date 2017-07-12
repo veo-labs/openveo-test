@@ -9,6 +9,7 @@
 - Add require('@openveo/test').e2e.helpers.Helper.translate() to translate a dictionary key
 - Add require('@openveo/test').e2e.fields.CheckboxesField.getOptions() to get the list of checkboxes labels
 - require('@openveo/test').e2e.asserts.TableAssert.checkLinesSelection() is now more exhaustive
+- Add require('@openveo/test').e2e.asserts.TableAssert.checkActions() to validates coherence between global actions and lines actions
 
 ## BUG FIXES
 
