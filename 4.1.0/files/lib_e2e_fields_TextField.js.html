@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>lib\e2e\fields\TextField.js - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 4.1.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/CheckboxField.html">CheckboxField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/Helper.html">Helper</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/karma-ng-inline-templates-preprocessor.html">karma-ng-inline-templates-preprocessor</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/screenshotPlugin.html">screenshotPlugin</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TagsField.html">TagsField</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                                <li><a href="../classes/TinyMCEField.html">TinyMCEField</a></li>
+                                <li><a href="../classes/util.html">util</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib\e2e\fields\TextField.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module e2e
+ */
+
+var util = require(&#x27;util&#x27;);
+var Field = process.requireTest(&#x27;lib/e2e/fields/Field.js&#x27;);
+
+/**
+ * Defines a form text field.
+ *
+ * Use Field.get method to get an instance of TextField.
+ *
+ * @example
+ *
+ *     var Field = require(&#x27;@openveo/test&#x27;).e2e.fields.Field;
+ *
+ *     var myTextField = Field.get({
+ *       type: &#x27;text&#x27;,
+ *       name: &#x27;My field&#x27;,
+ *       baseElement: element(by.css(&#x27;form&#x27;))
+ *     });
+ *
+ * @class TextField
+ * @extends Field
+ * @constructor
+ * @param {Object} conf A field configuration object
+ */
+function TextField(conf) {
+  TextField.super_.call(this, conf);
+
+  Object.defineProperties(this, {
+
+    /**
+     * Tag name of the text field.
+     *
+     * @property fieldTag
+     * @type ElementFinder
+     * @default &quot;input&quot;
+     */
+    fieldTag: {value: &#x27;input&#x27;, writable: true}
+
+  });
+
+}
+
+module.exports = TextField;
+util.inherits(TextField, Field);
+
+/**
+ * Gets field value.
+ *
+ * @example
+ *
+ *     myField.getValue().then(function(value) {
+ *       console.log(&#x27;Got value : &#x27; + value);
+ *     });
+ *
+ * @method getValue
+ * @return {Promise} Promise resolving with field value
+ */
+TextField.prototype.getValue = function() {
+  var self = this;
+
+  return this.getElement().then(function(elementFinder) {
+    var fieldElement = elementFinder.element(by.css(self.fieldTag));
+    return fieldElement.getAttribute(&#x27;value&#x27;);
+  });
+};
+
+/**
+ * Sets field value.
+ *
+ * @example
+ *
+ *     myField.setValue(&#x27;new value&#x27;).then(function() {
+ *       console.log(&#x27;Value set&#x27;);
+ *     });
+ *
+ * @method setValue
+ * @param {String} [value=&#x27;&#x27;] Field&#x27;s value
+ * @return {Promise} Promise resolving when the field is filled
+ */
+TextField.prototype.setValue = function(value) {
+  var fieldElement;
+  var self = this;
+
+  if (!value)
+    return this.clear();
+
+  return this.getElement().then(function(elementFinder) {
+    fieldElement = elementFinder.element(by.css(self.fieldTag));
+    return fieldElement.clear();
+  }).then(function() {
+    return fieldElement.sendKeys(value);
+  });
+};
+
+/**
+ * Clears field value.
+ *
+ * @example
+ *
+ *     myField.clear().then(function() {
+ *       console.log(&#x27;Field cleared&#x27;);
+ *     });
+ *
+ * @method clear
+ * @return {Promise} Promise resolving when the field is cleared
+ */
+TextField.prototype.clear = function() {
+  var self = this;
+
+  return this.getElement().then(function(elementFinder) {
+    var fieldElement = elementFinder.element(by.css(self.fieldTag));
+    return fieldElement.clear();
+  });
+};
+
+/**
+ * Tests if a field is considered as on error.
+ *
+ * @example
+ *
+ *     myField.isOnError().then(function(isOnError) {
+ *       console.log(&#x27;Is field on error ? &#x27; + isOnError);
+ *     });
+ *
+ * @method isOnError
+ * @return {Promise} Promise resolving with a boolean indicating if the field is on error
+ */
+TextField.prototype.isOnError = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.getAttribute(&#x27;class&#x27;).then(function(classes) {
+      var errorClass = &#x27;has-error&#x27;;
+      var reg = new RegExp(&#x27;^&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27;$&#x27;);
+      return protractor.promise.fulfilled(reg.test(classes));
+    });
+  });
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
