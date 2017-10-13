@@ -4,6 +4,10 @@
 
 - e2e.pages.BackEndPage now expects model "userLogin" instead of "userEmail" on login page. As it is possible to authenticate using either a surname, a nickname, an email and so on, login field model is now simply "userLogin"
 
+## NEW FEATURES
+
+- e2e.helpers.Helper.getEntities now accepts a filter parameter
+
 ## BUG FIXES
 
 - Fix e2e.asserts.TableAssert.checkLinesSelection which wasn't working if the associated helper didn't create entities with a "name" property. You can now specify the name of the property holding the name of your entity
