@@ -7,6 +7,7 @@
 ## NEW FEATURES
 
 - e2e.helpers.Helper.getEntities now accepts a filter parameter
+- e2e.fields.TagsField has been improved to follow the new ov-tags directive features such as available options and auto completion
 
 ## BUG FIXES
 
