@@ -10,6 +10,7 @@
 - e2e.fields.TagsField has been improved to follow the new ov-tags directive features such as available options and auto completion
 - e2e.fields.FakeField is now available to test a simple text associated to a label
 - e2e.fields.MatchField is now available to test ov-match directives
+- e2e.fields.BackEndPage is now capabable of logging against a CAS server or an LDAP server using logToCasAs and logToLdapAs. Not that logToCasAs implicates the use of cas-server-mock module to work
 
 ## BUG FIXES
 
