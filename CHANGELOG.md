@@ -4,6 +4,7 @@
 
 - Fix e2e.asserts.TableAssert.checkLinesSelection which wasn't working if the associated helper didn't create entities with a "name" property. You can now specify the name of the property holding the name of your entity
 - Fix e2e.pages.TablePage.removeLine. Sometimes the browser couldn't find the line to remove if already opened. It now closes the opened line first
+- Set user property to null when logging out using e2e.pages.BackEndPage. User information was still available
 
 # 4.1.0 / 2017-09-12
 
