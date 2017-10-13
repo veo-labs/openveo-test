@@ -1,3 +1,9 @@
+# 4.1.1 /
+
+## BUG FIXES
+
+- Fix e2e.asserts.TableAssert.checkLinesSelection which wasn't working if the associated helper didn't create entities with a "name" property. You can now specify the name of the property holding the name of your entity
+
 # 4.1.0 / 2017-09-12
 
 ## NEW FEATURES
