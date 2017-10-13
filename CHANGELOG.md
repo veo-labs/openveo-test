@@ -1,4 +1,8 @@
-# 4.1.1 /
+# 5.0.0 /
+
+## BREAKING CHANGES
+
+- e2e.pages.BackEndPage now expects model "userLogin" instead of "userEmail" on login page. As it is possible to authenticate using either a surname, a nickname, an email and so on, login field model is now simply "userLogin"
 
 ## BUG FIXES
 
