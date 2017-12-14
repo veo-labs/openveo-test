@@ -1,3 +1,9 @@
+# 5.0.1
+
+## BUG FIXES
+
+- Fix helper addEntities method which wasn't returning collection in the expected order.
+
 # 5.0.0 / 2017-10-19
 
 ## BREAKING CHANGES
