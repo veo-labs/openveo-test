@@ -1,4 +1,10 @@
-# 5.0.1
+# 6.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- @openveo/test now uses @openveo/api 5.\* which comes with important modifications. Models are no longer used and are replaced by providers with the following important consequences:
+  - e2e.pages.TablePage now expects a Provider instead of a Model
+  - e2e.helpers.Helper now expects a Provider instead of a Model
 
 ## BUG FIXES
 

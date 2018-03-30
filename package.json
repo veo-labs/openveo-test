@@ -19,7 +19,7 @@
     "url": "https://github.com/veo-labs/openveo-test.git"
   },
   "dependencies": {
-    "@openveo/api": "4.*",
+    "@openveo/api": "5.*",
     "chai": "4.0.2",
     "chai-as-promised": "7.1.1",
     "htmlparser2": "3.9.2",
