@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>CheckboxesField - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 6.0.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/CheckboxField.html">CheckboxField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/FakeField.html">FakeField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/Helper.html">Helper</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/karma-ng-inline-templates-preprocessor.html">karma-ng-inline-templates-preprocessor</a></li>
+                                <li><a href="../classes/MatchField.html">MatchField</a></li>
+                                <li><a href="../classes/MatchTagsField.html">MatchTagsField</a></li>
+                                <li><a href="../classes/MatchTextField.html">MatchTextField</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/screenshotPlugin.html">screenshotPlugin</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TagsField.html">TagsField</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                                <li><a href="../classes/TinyMCEField.html">TinyMCEField</a></li>
+                                <li><a href="../classes/util.html">util</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>CheckboxesField</h1>
+<div class="meta">
+
+        <div class="extends">
+            Extends <a href="../classes/Field.html" class="crosslink">Field</a>
+        </div>
+
+        <div class="foundat">
+            Defined in: <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l11"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:11</code></a>
+        </div>
+
+            Module: <a href="../modules/e2e.html">e2e</a>
+
+</div>
+
+
+<h3>Summary</h3>
+<div class="intro">
+    <p>Defines a form checkboxes field.</p>
+<p>Use Field.get method to get an instance of CheckboxesField.</p>
+
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_CheckboxesField" class="method item">
+  <h3 class="blue-method-name">CheckboxesField</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l11"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:11</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>CheckboxesField</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>conf</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">conf</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>A field configuration object</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>var Field = require('@openveo/test').e2e.fields.Field;
+
+var CheckboxesField = Field.get({
+  type: 'checkboxes',
+  name: 'My field',
+  baseElement: element(by.css('form'))
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                            <li class="index-item method inherited">
+                                <a href="#method_clear">clear</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getDescription">getDescription</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getElement">getElement</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getErrorMessage">getErrorMessage</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getLabel">getLabel</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getOptions">getOptions</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getText">getText</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getValue">getValue</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_isOnError">isOnError</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_setValue">setValue</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                            <li class="index-item property inherited">
+                                <a href="#property_baseElement">baseElement</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_name">name</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_clear" class="method item">
+  <h3 class="blue-method-name">clear</h3>
+
+  <div class="meta method-meta">
+    <p>Inherited from
+      <a href="../classes/Field.html#method_clear">
+        Field
+      </a>
+        but overwritten in
+      <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l121"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:121</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>clear</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Unchecks all checkboxes.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    <p>Promise resolving when the field is cleared</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.clear().then(function() {
+  console.log('Field cleared');
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getDescription" class="method item inherited">
+  <h3 class="blue-method-name">getDescription</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_getDescription">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l115"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:115</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getDescription</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Gets field description.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with the description
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getDescription().then(function(description) {
+  console.log('Field description is : ' + description);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getElement" class="method item inherited">
+  <h3 class="blue-method-name">getElement</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_getElement">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l155"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:155</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getElement</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Gets field element wrapper.
+
+Look for a form element label and return its parent.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with the element
+                </div>
+
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getErrorMessage" class="method item inherited">
+  <h3 class="blue-method-name">getErrorMessage</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_getErrorMessage">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l192"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:192</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getErrorMessage</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Gets field error message.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with the error message
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getErrorMessage().then(function(errorMessage) {
+  console.log('Error message : ' + errorMessage);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getLabel" class="method item inherited">
+  <h3 class="blue-method-name">getLabel</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_getLabel">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l134"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:134</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getLabel</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Gets field label.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with the label
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getLabel().then(function(label) {
+  console.log('Field label is : ' + label);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getOptions" class="method item">
+  <h3 class="blue-method-name">getOptions</h3>
+
+  <div class="meta method-meta">
+      <p>
+          Defined in
+      <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l137"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:137</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getOptions</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Gets all checkboxes labels.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    <p>Promise resolving with checkboxes options</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getOptions().then(function(options) {
+  console.log(options);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getText" class="method item inherited">
+  <h3 class="blue-method-name">getText</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_getText">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l213"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:213</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getText</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Gets field text representation in case of an inline editable field.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with field text representation
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getText().then(function(text) {
+  console.log(text);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_getValue" class="method item">
+  <h3 class="blue-method-name">getValue</h3>
+
+  <div class="meta method-meta">
+    <p>Inherited from
+      <a href="../classes/Field.html#method_getValue">
+        Field
+      </a>
+        but overwritten in
+      <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l38"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:38</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>getValue</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Gets selected checkboxe names.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    <p>Promise resolving with selected checkboxes</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.getValue().then(function(values) {
+  console.log(values);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_isOnError" class="method item inherited">
+  <h3 class="blue-method-name">isOnError</h3>
+
+  <div class="meta method-meta">
+      <p>Inherited from
+        <a href="../classes/Field.html#method_isOnError">Field</a>:
+      <a href="../files/lib_e2e_fields_Field.js.html#l283"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:283</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>isOnError</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        Tests if a field is considered as on error.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    Promise resolving with a boolean indicating if the field is on error
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.isOnError().then(function(isOnError) {
+  console.log('Is field on error ? ' + isOnError);
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_setValue" class="method item">
+  <h3 class="blue-method-name">setValue</h3>
+
+  <div class="meta method-meta">
+    <p>Inherited from
+      <a href="../classes/Field.html#method_setValue">
+        Field
+      </a>
+        but overwritten in
+      <a href="../files/lib_e2e_fields_CheckboxesField.js.html#l76"><code>lib&#x2F;e2e&#x2F;fields&#x2F;CheckboxesField.js:76</code></a>
+  </p>
+
+
+
+  </div>
+
+  <h3>Syntax</h3>
+  <div class="blue-method-syntax">
+  <h3 class="name"><code>setValue</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code class="optional">[values=[]]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>
+        </span>
+
+
+
+
+
+
+
+  </div>
+    <div class="description">
+      <h3>Summary</h3>
+        <p>Sets field value.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name optional">[values=[]]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Checkboxe's values</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="crosslink external" target="_blank">Promise</a></span>:
+                <div class="blue-return-desc">
+                    <p>Promise resolving when checkboxes are checked</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+<pre class="code prettyprint"><code>myField.setValue(['Label 1', 'Label 2']).then(function() {
+  console.log('Value set');
+});</code></pre>
+
+            </div>
+        </div>
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property_baseElement" class="property item inherited">
+                    
+                      <h3 class="blue-method-name">baseElement</h3>
+                      <div class="meta method-meta">
+                          <p>Inherited from
+                            <a href="../classes/Field.html#property_baseElement">Field</a>:
+                          <a href="../files/lib_e2e_fields_Field.js.html#l29"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:29</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>baseElement</code></h3>
+                        <span class="type">ElementFinder</span>
+                    
+                    
+                    
+                            <span class="flag final">final</span>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            Element from where to look for the field (typically the form element).
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+                    <div id="property_name" class="property item inherited">
+                    
+                      <h3 class="blue-method-name">name</h3>
+                      <div class="meta method-meta">
+                          <p>Inherited from
+                            <a href="../classes/Field.html#property_name">Field</a>:
+                          <a href="../files/lib_e2e_fields_Field.js.html#l20"><code>lib&#x2F;e2e&#x2F;fields&#x2F;Field.js:20</code></a>
+                      </p>
+                    
+                    
+                      </div>
+                    
+                      <h3>Syntax</h3>
+                      <div class="blue-method-syntax">
+                        <h3 class="name"><code>name</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+                    
+                    
+                            <span class="flag final">final</span>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                          <h3>Summary</h3>
+                            Field label.
+                        </div>
+                    
+                    
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

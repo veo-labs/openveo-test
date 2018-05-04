@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>lib/e2e/fields/TinyMCEField.js - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 6.0.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/CheckboxField.html">CheckboxField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/FakeField.html">FakeField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/Helper.html">Helper</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/karma-ng-inline-templates-preprocessor.html">karma-ng-inline-templates-preprocessor</a></li>
+                                <li><a href="../classes/MatchField.html">MatchField</a></li>
+                                <li><a href="../classes/MatchTagsField.html">MatchTagsField</a></li>
+                                <li><a href="../classes/MatchTextField.html">MatchTextField</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/screenshotPlugin.html">screenshotPlugin</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TagsField.html">TagsField</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                                <li><a href="../classes/TinyMCEField.html">TinyMCEField</a></li>
+                                <li><a href="../classes/util.html">util</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/e2e/fields/TinyMCEField.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module e2e
+ */
+
+var util = require(&#x27;util&#x27;);
+var Field = process.requireTest(&#x27;lib/e2e/fields/Field.js&#x27;);
+
+/**
+ * Defines a form tinyIMCE field.
+ *
+ * Use Field.get method to get an instance of TinyMCEField.
+ *
+ * @example
+ *
+ *     var Field = require(&#x27;@openveo/test&#x27;).e2e.fields.Field;
+ *
+ *     var myTinyMCEField = Field.get({
+ *       type: &#x27;tinymce&#x27;,
+ *       name: &#x27;My field&#x27;,
+ *       baseElement: element(by.css(&#x27;form&#x27;))
+ *     });
+ *
+ * @class TinyMCEField
+ * @extends Field
+ * @constructor
+ * @param {Object} conf A field configuration object
+ */
+function TinyMCEField(conf) {
+  TinyMCEField.super_.call(this, conf);
+}
+
+module.exports = TinyMCEField;
+util.inherits(TinyMCEField, Field);
+
+/**
+ * Gets field value.
+ *
+ * @example
+ *
+ *     myField.getValue().then(function(value) {
+ *       console.log(&#x27;Got value : &#x27; + value);
+ *     });
+ *
+ * @method getValue
+ * @return {Promise} Promise resolving with field value
+ */
+TinyMCEField.prototype.getValue = function() {
+  return browser.executeScript(&#x27;return tinyMCE.activeEditor.getContent()&#x27;);
+};
+
+/**
+ * Sets field value.
+ *
+ * @example
+ *
+ *     myField.setValue(&#x27;new value&#x27;).then(function() {
+ *       console.log(&#x27;Value set&#x27;);
+ *     });
+ *
+ * @method setValue
+ * @param {String} [value=&#x27;&#x27;] Field&#x27;s value
+ * @return {Promise} Promise resolving when the field is filled
+ */
+TinyMCEField.prototype.setValue = function(value) {
+  if (!value)
+    return this.clear();
+
+  return this.clear().then(function() {
+    return browser.executeScript(&#x27;return tinyMCE.activeEditor.insertContent(&quot;&#x27; + value + &#x27;&quot;)&#x27;);
+  });
+};
+
+/**
+ * Clears field value.
+ *
+ * @example
+ *
+ *     myField.clear().then(function() {
+ *       console.log(&#x27;Field cleared&#x27;);
+ *     });
+ *
+ * @method clear
+ * @return {Promise} Promise resolving when the field is cleared
+ */
+TinyMCEField.prototype.clear = function() {
+  return browser.executeScript(&#x27;return tinyMCE.activeEditor.setContent(&quot;&quot;)&#x27;);
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
