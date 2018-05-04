@@ -6,6 +6,10 @@
   - e2e.pages.TablePage now expects a Provider instead of a Model
   - e2e.helpers.Helper now expects a Provider instead of a Model
 
+## NEW FEATURES
+
+- Add NPM package-lock.json file
+
 ## BUG FIXES
 
 - Fix helper addEntities method which wasn't returning collection in the expected order.
