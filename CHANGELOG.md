@@ -1,3 +1,9 @@
+# 7.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- Drop support for NodeJS &lt; 8.9.4 and NPM &lt; 5.6.0
+
 # 6.0.0 / 2018-05-04
 
 ## BREAKING CHANGES
