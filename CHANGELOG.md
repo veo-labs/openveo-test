@@ -7,6 +7,7 @@
 ## BUG FIXES
 
 - Fix error handling when using e2e.pages.TablePage.getAllLineDetails, the error was catched silently and promise was never rejected
+- Fix the *stale element reference* error which sometimes happened when closing the opened line using e2e.pages.TablePage.closeLine
 
 # 6.0.0 / 2018-05-04
 
