@@ -4,6 +4,10 @@
 
 - Drop support for NodeJS &lt; 8.9.4 and NPM &lt; 5.6.0
 
+## NEW FEATURES
+
+- e2e.fields.DateTimeField is now available to test ov-date-time-picker directive
+
 ## BUG FIXES
 
 - Fix error handling when using e2e.pages.TablePage.getAllLineDetails, the error was catched silently and promise was never rejected
