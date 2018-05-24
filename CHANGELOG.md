@@ -15,6 +15,7 @@
 - Fix the *stale element reference* error which sometimes happened when closing the opened line using e2e.pages.TablePage.closeLine
 - Fix e2e.pages.TablePage for tables containing &lt;table&gt; tags
 - Fix hanging blank page appearing sometimes when using e2e.pages.BackEndPage.selectLanguage, e2e.pages.BackEndPage.load or e2e.pages.Page.load
+- Fix unstable e2e.browser.click
 
 # 6.0.0 / 2018-05-04
 
