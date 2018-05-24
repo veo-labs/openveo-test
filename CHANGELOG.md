@@ -7,6 +7,7 @@
 ## NEW FEATURES
 
 - e2e.fields.DateTimeField is now available to test ov-date-time-picker directive
+- e2e.fields.TextField has been improved to set the input value directly instead of adding characters one by one
 
 ## BUG FIXES
 
