@@ -34,7 +34,8 @@
     "yuidoc-theme-blue": "0.1.9"
   },
   "scripts": {
-    "eslint": "grunt eslint"
+    "eslint": "grunt eslint",
+    "postpublish": "grunt deploy-doc"
   },
   "precommit": [
     "eslint"
