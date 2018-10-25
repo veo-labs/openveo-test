@@ -2,6 +2,15 @@
 
 - e2e.fields.AutoCompleteField is now available to test ov-auto-complete directives
 
+## DEPENDENCIES
+
+- **chai** has been upgraded from 4.0.2 to **4.2.0**
+- **htmlparser2** has been upgraded from 3.9.2 to **3.10.0**
+- **async** has been upgraded from 2.1.4 to **2.6.1**
+- **grunt** has been upgraded from 1.0.1 to **1.0.3**
+- **grunt-gh-pages** has been upgraded from 2.0.0 to **3.1.0**
+- **grunt-eslint** has been upgraded from 19.0.0 to **21.0.0**
+
 # 7.0.0 / 2018-06-15
 
 ## BREAKING CHANGES

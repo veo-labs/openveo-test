@@ -20,16 +20,16 @@
   },
   "dependencies": {
     "@openveo/api": "5.*",
-    "chai": "4.0.2",
+    "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
-    "htmlparser2": "3.9.2",
-    "async": "2.1.4"
+    "htmlparser2": "3.10.0",
+    "async": "2.6.1"
   },
   "devDependencies": {
     "pre-commit": "1.2.2",
-    "grunt": "1.0.1",
-    "grunt-gh-pages": "2.0.0",
-    "grunt-eslint": "19.0.0",
+    "grunt": "1.0.3",
+    "grunt-gh-pages": "3.1.0",
+    "grunt-eslint": "21.0.0",
     "grunt-contrib-yuidoc": "1.0.0",
     "yuidoc-theme-blue": "0.1.9"
   },
