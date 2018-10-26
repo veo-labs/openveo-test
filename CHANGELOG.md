@@ -10,6 +10,7 @@
 - **grunt** has been upgraded from 1.0.1 to **1.0.3**
 - **grunt-gh-pages** has been upgraded from 2.0.0 to **3.1.0**
 - **grunt-eslint** has been upgraded from 19.0.0 to **21.0.0**
+- **@openveo/api** has been upgraded from 5.1.1 to **6.1.0*
 
 # 7.0.0 / 2018-06-15
 
