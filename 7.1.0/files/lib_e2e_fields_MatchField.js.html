@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="yui-overrride">
+<head>
+    <meta charset="utf-8">
+    <title>lib/e2e/fields/MatchField.js - OpenVeo test API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1 class="blue-main-title">OpenVeo test API</h1>
+        </div>
+        <div class="yui3-u-1-4 version project-version">
+            API Docs for: 7.1.0
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/AutoCompleteField.html">AutoCompleteField</a></li>
+                                <li><a href="../classes/BackEndPage.html">BackEndPage</a></li>
+                                <li><a href="../classes/browser.html">browser</a></li>
+                                <li><a href="../classes/CheckboxesField.html">CheckboxesField</a></li>
+                                <li><a href="../classes/CheckboxField.html">CheckboxField</a></li>
+                                <li><a href="../classes/DateField.html">DateField</a></li>
+                                <li><a href="../classes/DateTimeField.html">DateTimeField</a></li>
+                                <li><a href="../classes/FakeField.html">FakeField</a></li>
+                                <li><a href="../classes/Field.html">Field</a></li>
+                                <li><a href="../classes/Helper.html">Helper</a></li>
+                                <li><a href="../classes/i18n.html">i18n</a></li>
+                                <li><a href="../classes/karma-ng-inline-templates-preprocessor.html">karma-ng-inline-templates-preprocessor</a></li>
+                                <li><a href="../classes/MatchField.html">MatchField</a></li>
+                                <li><a href="../classes/MatchTagsField.html">MatchTagsField</a></li>
+                                <li><a href="../classes/MatchTextField.html">MatchTextField</a></li>
+                                <li><a href="../classes/Page.html">Page</a></li>
+                                <li><a href="../classes/screenshotPlugin.html">screenshotPlugin</a></li>
+                                <li><a href="../classes/SelectField.html">SelectField</a></li>
+                                <li><a href="../classes/TableAssert.html">TableAssert</a></li>
+                                <li><a href="../classes/TablePage.html">TablePage</a></li>
+                                <li><a href="../classes/TagsField.html">TagsField</a></li>
+                                <li><a href="../classes/TextareaField.html">TextareaField</a></li>
+                                <li><a href="../classes/TextField.html">TextField</a></li>
+                                <li><a href="../classes/TimeField.html">TimeField</a></li>
+                                <li><a href="../classes/TinyMCEField.html">TinyMCEField</a></li>
+                                <li><a href="../classes/util.html">util</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/e2e.html">e2e</a></li>
+                                <li><a href="../modules/unit.html">unit</a></li>
+                                <li><a href="../modules/util.html">util</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/e2e/fields/MatchField.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x27;use strict&#x27;;
+
+/**
+ * @module e2e
+ */
+
+var util = require(&#x27;util&#x27;);
+var browserExt = process.requireTest(&#x27;lib/e2e/browser.js&#x27;);
+var Field = process.requireTest(&#x27;lib/e2e/fields/Field.js&#x27;);
+var TextField = process.requireTest(&#x27;lib/e2e/fields/TextField.js&#x27;);
+var TagsField = process.requireTest(&#x27;lib/e2e/fields/TagsField.js&#x27;);
+
+/**
+ * Defines a form match field.
+ *
+ * Use Field.get method to get an instance of MatchField.
+ *
+ * @example
+ *
+ *     var Field = require(&#x27;@openveo/test&#x27;).e2e.fields.Field;
+ *
+ *     var MatchField = Field.get({
+ *       type: &#x27;match&#x27;,
+ *       name: &#x27;My field&#x27;,
+ *       baseElement: element(by.css(&#x27;form&#x27;))
+ *     });
+ *
+ * @class MatchField
+ * @extends Field
+ * @constructor
+ * @param {Object} conf A field configuration object
+ */
+function MatchField(conf) {
+  MatchField.super_.call(this, conf);
+
+  Object.defineProperties(this, {
+
+    /**
+     * The list of available options for tags.
+     *
+     * @property availableOptions
+     * @type Array
+     */
+    availableOptions: {value: conf.availableOptions}
+
+  });
+}
+
+module.exports = MatchField;
+util.inherits(MatchField, Field);
+
+/**
+ * Defines a MatchTextField.
+ *
+ * A MatchTextField is a field part of a match, it is pretty much like
+ * a TextField except that it is part of a match.
+ *
+ * @class MatchTextField
+ * @extends TextField
+ * @constructor
+ * @param {Object} conf Field configuration
+ * @param {String} conf.name Field configuration
+ * @param {ElementFinder} conf.baseElement The match element
+ */
+function MatchTextField(conf) {
+  MatchTextField.super_.call(this, conf);
+}
+util.inherits(MatchTextField, TextField);
+
+/**
+ * Gets match text field element wrapper.
+ *
+ * @method getElement
+ * @return {Promise} Promise resolving with the element
+ */
+MatchTextField.prototype.getElement = function() {
+  return protractor.promise.fulfilled(this.baseElement.all(by.css(&#x27;input&#x27;)).get(0).element(by.xpath(&#x27;..&#x27;)));
+};
+
+/**
+ * Defines a MatchTagsField.
+ *
+ * A MatchTagsField is a field part of a match, it is pretty much like
+ * a TagsField except that it is part of a match.
+ *
+ * @class MatchTagsField
+ * @extends TagsField
+ * @constructor
+ * @param {Object} conf Field configuration
+ * @param {String} conf.name Field configuration
+ * @param {ElementFinder} conf.baseElement The match element
+ */
+function MatchTagsField(conf) {
+  MatchTagsField.super_.call(this, conf);
+}
+util.inherits(MatchTagsField, TagsField);
+
+/**
+ * Gets match tags field element wrapper.
+ *
+ * @method getElement
+ * @return {Promise} Promise resolving with the element
+ */
+MatchTagsField.prototype.getElement = function() {
+  return protractor.promise.fulfilled(this.baseElement.element(by.css(&#x27;.ov-field-tags&#x27;)));
+};
+
+/**
+ * Gets value of a match.
+ *
+ * @method getMatchValue
+ * @private
+ * @return {ElementFinder} matchFinder Finder for the match
+ * @return {Promise} Promise resolving with the value of the match
+ */
+function getMatchValue(matchFinder) {
+  var match = {};
+  var textField = new MatchTextField({
+    name: &#x27;Whatever&#x27;,
+    baseElement: matchFinder
+  });
+  var tagsField = new MatchTagsField({
+    name: &#x27;Whatever&#x27;,
+    baseElement: matchFinder,
+    availableOptions: this.availableOptions
+  });
+
+  return textField.getValue().then(function(text) {
+    match.text = text;
+    return tagsField.getValue();
+  }).then(function(tags) {
+    match.tags = tags;
+    return protractor.promise.fulfilled(match);
+  });
+}
+
+/**
+ * Removes a match by clicking on the remove button.
+ *
+ * @method removeMatch
+ * @private
+ * @return {ElementFinder} matchFinder Finder for the match
+ * @return {Promise} Promise resolving with the value of the match
+ */
+function removeMatch(matchFinder) {
+  return browserExt.click(matchFinder.element(by.css(&#x27;.ov-field-match-remove-icon&#x27;)));
+}
+
+/**
+ * Adds a new match using add button, text field and tags field.
+ *
+ * @method addMatchValue
+ * @private
+ * @return {Object} value The match value
+ * @return {String} value.text The match text field value
+ * @return {String} value.tags The match tags field value
+ * @return {Promise} Promise resolving when match has been added
+ */
+function addMatchValue(value) {
+  var finder;
+  var self = this;
+
+  return this.getElement().then(function(elementFinder) {
+    finder = elementFinder;
+    return browserExt.click(elementFinder.element(by.css(&#x27;.ov-field-match-add-button&#x27;)));
+  }).then(function() {
+    var matchFinder = finder.all(by.repeater(&#x27;match in matches&#x27;)).last();
+
+    var textField = new MatchTextField({
+      name: &#x27;Whatever&#x27;,
+      baseElement: matchFinder
+    });
+    var tagsField = new MatchTagsField({
+      name: &#x27;Whatever&#x27;,
+      baseElement: matchFinder,
+      availableOptions: self.availableOptions
+    });
+
+    return textField.setValue(value.text).then(function() {
+      return tagsField.setValue(value.tags);
+    });
+  });
+}
+
+/**
+ * Adds a new match using add button, text field and tags field with auto completion.
+ *
+ * @method addMatchValueUsingAutoCompletion
+ * @private
+ * @return {Object} value The match value
+ * @return {String} value.text The match text field value
+ * @return {String} value.tags The match tags field value
+ * @return {Promise} Promise resolving when match has been added
+ */
+function addMatchValueUsingAutoCompletion(value) {
+  var finder;
+  var self = this;
+
+  return this.getElement().then(function(elementFinder) {
+    finder = elementFinder;
+    return browserExt.click(elementFinder.element(by.css(&#x27;.ov-field-match-add-button&#x27;)));
+  }).then(function() {
+    var matchFinder = finder.all(by.repeater(&#x27;match in matches&#x27;)).last();
+
+    var textField = new MatchTextField({
+      name: &#x27;Whatever&#x27;,
+      baseElement: matchFinder
+    });
+    var tagsField = new MatchTagsField({
+      name: &#x27;Whatever&#x27;,
+      baseElement: matchFinder,
+      availableOptions: self.availableOptions
+    });
+
+    return textField.setValue(value.text).then(function() {
+      return tagsField.setValueUsingAutoCompletion(value.tags);
+    });
+  });
+}
+
+/**
+ * Gets field value, the list of associations (matches).
+ *
+ * @example
+ *
+ *     myField.getValue().then(function(matches) {
+ *       console.log(matches);
+ *     });
+ *
+ * @method getValue
+ * @return {Promise} Promise resolving with the list of matches
+ */
+MatchField.prototype.getValue = function() {
+  var self = this;
+
+  return this.getElement().then(function(elementFinder) {
+    var deferred = protractor.promise.defer();
+    var promises = [];
+
+    elementFinder.all(by.repeater(&#x27;match in matches&#x27;)).each(function(matchFinder) {
+      promises.push(getMatchValue.call(self, matchFinder));
+    }).then(function() {
+      protractor.promise.all(promises).then(function(matches) {
+        deferred.fulfill(matches);
+      }, function(error) {
+        deferred.reject(error);
+      });
+    });
+
+    return deferred.promise;
+  });
+};
+
+/**
+ * Sets field value.
+ *
+ * @example
+ *
+ *     myField.setValue([
+ *       {
+ *         text: &#x27;text&#x27;,
+ *         tags: [&#x27;tags1&#x27;, &#x27;tags2&#x27;, &#x27;tags3&#x27;]
+ *       },
+ *       {
+ *         text: &#x27;text2&#x27;,
+ *         tags: [&#x27;tags4&#x27;, &#x27;tags5&#x27;, &#x27;tags6&#x27;]
+ *       }
+ *     ]).then(function() {
+ *       console.log(&#x27;Value set&#x27;);
+ *     });
+ *
+ * @method setValue
+ * @param {Array} [values] List of matches
+ * @return {Promise} Promise resolving when the field is filled
+ */
+MatchField.prototype.setValue = function(values) {
+  var self = this;
+
+  if (!values || !values.length)
+    return this.clear();
+
+  return this.clear().then(function() {
+    var promises = [];
+
+    // Add matches one by one
+    for (var i = 0; i &lt; values.length; i++)
+      promises.push(addMatchValue.call(self, values[i]));
+
+    return protractor.promise.all(promises);
+  });
+};
+
+/**
+ * Sets field value using auto completion.
+ *
+ * @example
+ *
+ *     myField.setValueUsingAutoCompletion([
+ *       {
+ *         text: &#x27;text&#x27;,
+ *         tags: [&#x27;tags1&#x27;, &#x27;tags2&#x27;, &#x27;tags3&#x27;]
+ *       },
+ *       {
+ *         text: &#x27;text2&#x27;,
+ *         tags: [&#x27;tags4&#x27;, &#x27;tags5&#x27;, &#x27;tags6&#x27;]
+ *       }
+ *     ]).then(function() {
+ *       console.log(&#x27;Value set&#x27;);
+ *     });
+ *
+ * @method setValueUsingAutoCompletion
+ * @param {Array} [values] List of matches
+ * @return {Promise} Promise resolving when the field is filled
+ */
+MatchField.prototype.setValueUsingAutoCompletion = function(values) {
+  var self = this;
+
+  if (!values || !values.length)
+    return this.clear();
+
+  return this.clear().then(function() {
+    var promises = [];
+
+    // Add matches one by one
+    for (var i = 0; i &lt; values.length; i++)
+      promises.push(addMatchValueUsingAutoCompletion.call(self, values[i]));
+
+    return protractor.promise.all(promises);
+  });
+};
+
+/**
+ * Clears field value by removing all tags.
+ *
+ * @example
+ *
+ *     myField.clear().then(function() {
+ *       console.log(&#x27;Field cleared&#x27;);
+ *     });
+ *
+ * @method clear
+ * @return {Promise} Promise resolving when the field is cleared
+ */
+MatchField.prototype.clear = function() {
+  return this.getElement().then(function(elementFinder) {
+    var deferred = protractor.promise.defer();
+    var promises = [];
+
+    elementFinder.all(by.repeater(&#x27;match in matches&#x27;)).each(function(matchFinder) {
+      promises.push(removeMatch(matchFinder));
+    }).then(function() {
+      protractor.promise.all(promises).then(function() {
+        deferred.fulfill();
+      }, function(error) {
+        deferred.reject(error);
+      });
+    });
+
+    return deferred.promise;
+  });
+};
+
+/**
+ * Tests if field is considered as on error.
+ *
+ * @example
+ *
+ *     myField.isOnError().then(function(isOnError) {
+ *       console.log(&#x27;Is field on error ? &#x27; + isOnError);
+ *     });
+ *
+ * @method isOnError
+ * @return {Promise} Promise resolving with a boolean indicating if the field is on error
+ */
+MatchField.prototype.isOnError = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.getAttribute(&#x27;class&#x27;).then(function(classes) {
+      var errorClass = &#x27;has-error&#x27;;
+      var reg = new RegExp(&#x27;^&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27; |&#x27; + errorClass + &#x27;$&#x27;);
+      return protractor.promise.fulfilled(reg.test(classes));
+    });
+  });
+};
+
+/**
+ * Gets the add button label.
+ *
+ * @example
+ *
+ *     myField.getAddLabel().then(function(label) {
+ *       console.log(&#x27;Add button label: &#x27; + label);
+ *     });
+ *
+ * @method getAddLabel
+ * @return {Promise} Promise resolving with the button label
+ */
+MatchField.prototype.getAddLabel = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.element(by.css(&#x27;.ov-field-match-add-label&#x27;)).getText();
+  });
+};
+
+/**
+ * Gets the input placeholder.
+ *
+ * @example
+ *
+ *     myField.getInputPlaceholder().then(function(placeholder) {
+ *       console.log(&#x27;Input placeholder: &#x27; + placeholder);
+ *     });
+ *
+ * @method getInputPlaceholder
+ * @return {Promise} Promise resolving with the input placeholder
+ */
+MatchField.prototype.getInputPlaceholder = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.all(by.css(&#x27;input&#x27;)).get(0).getAttribute(&#x27;placeholder&#x27;);
+  });
+};
+
+/**
+ * Gets the tags placeholder.
+ *
+ * @example
+ *
+ *     myField.getTagsPlaceholder().then(function(placeholder) {
+ *       console.log(&#x27;Tags placeholder: &#x27; + placeholder);
+ *     });
+ *
+ * @method getTagsPlaceholder
+ * @return {Promise} Promise resolving with the tags placeholder
+ */
+MatchField.prototype.getTagsPlaceholder = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.all(by.css(&#x27;input&#x27;)).get(1).getAttribute(&#x27;placeholder&#x27;);
+  });
+};
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
