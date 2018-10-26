@@ -1,4 +1,4 @@
-# 7.1.0 / YYYY-MM-DD
+# 7.1.0 / 2018-10-26
 
 - e2e.fields.AutoCompleteField is now available to test ov-auto-complete directives
 
