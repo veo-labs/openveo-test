@@ -10,6 +10,7 @@
 - **htmlparser2** has been upgraded from 3.10.0 to **4.1.0**
 - **grunt** has been upgraded from 1.0.3 to **1.1.0**
 - **grunt-contrib-yuidoc** sub dependencies have been upgraded
+- **grunt-eslint** has been upgraded from 21.0.0 to **22.0.0**
 
 # 7.1.0 / 2018-10-26
 
