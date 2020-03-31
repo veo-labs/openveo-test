@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@openveo/api": "6.*",
-    "chai": "4.2.0",
+    "async": "2.6.1",
+    "chai": "^4.2.0",
     "chai-as-promised": "7.1.1",
-    "htmlparser2": "3.10.0",
-    "async": "2.6.1"
+    "htmlparser2": "3.10.0"
   },
   "devDependencies": {
     "pre-commit": "1.2.2",
