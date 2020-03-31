@@ -26,11 +26,11 @@
     "htmlparser2": "^4.1.0"
   },
   "devDependencies": {
-    "pre-commit": "1.2.2",
     "grunt": "1.0.3",
-    "grunt-gh-pages": "3.1.0",
-    "grunt-eslint": "21.0.0",
     "grunt-contrib-yuidoc": "1.0.0",
+    "grunt-eslint": "21.0.0",
+    "grunt-gh-pages": "3.1.0",
+    "pre-commit": "^1.2.2",
     "yuidoc-theme-blue": "0.1.9"
   },
   "scripts": {
