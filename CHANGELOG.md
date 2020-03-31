@@ -7,6 +7,7 @@
 ## DEPENDENCIES
 
 - **async** has been upgraded from 2.6.1 to **3.2.0**
+- **htmlparser2** has been upgraded from 3.10.0 to **4.1.0**
 
 # 7.1.0 / 2018-10-26
 
