@@ -4,6 +4,10 @@
 
 - Drop support for NodeJS &lt; 12.4.0 and NPM &lt; 6.9.0
 
+## DEPENDENCIES
+
+- **async** has been upgraded from 2.6.1 to **3.2.0**
+
 # 7.1.0 / 2018-10-26
 
 - e2e.fields.AutoCompleteField is now available to test ov-auto-complete directives
