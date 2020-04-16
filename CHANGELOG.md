@@ -4,6 +4,10 @@
 
 - Drop support for NodeJS &lt; 12.4.0 and NPM &lt; 6.9.0
 
+## BUG FIXES
+
+- Fix freeze when using e2e.pages.TablePage.openLine or e2e.pages.TablePage.selectFirstPageRange / e2e.pages.TablePage.selectLastPageRange with latest versions of Chromium / Google Chrome
+
 ## DEPENDENCIES
 
 - **async** has been upgraded from 2.6.1 to **3.2.0**
