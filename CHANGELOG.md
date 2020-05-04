@@ -1,4 +1,4 @@
-# 8.0.0 / YYYY-MM-DD
+# 8.0.0 / 2020-05-04
 
 ## BREAKING CHANGES
 
