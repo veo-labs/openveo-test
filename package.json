@@ -35,6 +35,7 @@
     "yuidoc-theme-blue": "^0.1.9"
   },
   "scripts": {
+    "doc": "npx grunt doc",
     "lint": "npx grunt eslint",
     "postpublish": "npx grunt deploy-doc"
   },
