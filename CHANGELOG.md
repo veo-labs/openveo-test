@@ -8,6 +8,10 @@
 
 - e2e.browser.getProperty has been added to get a property (not the attribute) of an element
 
+## BUG FIXES
+
+- Fix e2e tests methods using chechboxes which didn't work anymore since AngularJS no longer reflects boolean properties into attributes, it concerns e2e.asserts.TableAssert.checkLinesSelection, e2e.fields.CheckboxField.getValue, e2e.fields.CheckboxField.setValue, e2e.fields.CheckboxesField.getValue, e2e.pages.TablePage.isSelectedLine and e2e.pages.TablePage.deselectLine
+
 # 8.0.0 / 2020-05-04
 
 ## BREAKING CHANGES
