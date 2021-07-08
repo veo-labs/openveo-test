@@ -13,6 +13,7 @@
 - Fix e2e tests methods using chechboxes which didn't work anymore since AngularJS no longer reflects boolean properties into attributes, it concerns e2e.asserts.TableAssert.checkLinesSelection, e2e.fields.CheckboxField.getValue, e2e.fields.CheckboxField.setValue, e2e.fields.CheckboxesField.getValue, e2e.pages.TablePage.isSelectedLine and e2e.pages.TablePage.deselectLine
 - Fix e2e tests methods using "value" attribute which didn't work anymore since AngularJS no longer reflects "value" property into an attribute, it concerns e2e.fields.DateTimeField.getValue, e2e.fields.TextField.getValue and e2e.fields.TimeField.getValue
 - Fix setValue of the fields based on a TextField which wasn't working in headless browser
+- Fix e2e.pages.TablePage which could fail with the error "Cannot read property 'split' of null"
 
 # 8.0.0 / 2020-05-04
 
