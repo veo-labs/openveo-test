@@ -7,6 +7,7 @@
 ## NEW FEATURES
 
 - e2e.browser.getProperty has been added to get a property (not the attribute) of an element
+- Improve code documentation by replacing Yuidoc by JSDoc
 
 ## BUG FIXES
 
@@ -14,6 +15,10 @@
 - Fix e2e tests methods using "value" attribute which didn't work anymore since AngularJS no longer reflects "value" property into an attribute, it concerns e2e.fields.DateTimeField.getValue, e2e.fields.TextField.getValue and e2e.fields.TimeField.getValue
 - Fix setValue of the fields based on a TextField which wasn't working in headless browser
 - Fix e2e.pages.TablePage which could fail with the error "Cannot read property 'split' of null"
+
+## DEPENDENCIES
+
+- **yuidoc** has been replaced by **JSDoc**
 
 # 8.0.0 / 2020-05-04
 
