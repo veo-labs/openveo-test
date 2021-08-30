@@ -18,6 +18,8 @@
 
 ## DEPENDENCIES
 
+- **eslint** has been upgraded from 22.0.0 to **23.0.0**
+- **grunt-eslint** has been removed
 - **yuidoc** has been replaced by **JSDoc**
 
 # 8.0.0 / 2020-05-04

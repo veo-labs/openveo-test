@@ -1,6 +1,6 @@
 'use strict';
 
-/* eslint no-sync: 0 */
+/* eslint node/no-sync: 0 */
 var fs = require('fs');
 
 /**
@@ -33,7 +33,6 @@ module.exports = function(grunt) {
   grunt.config.merge(loadConfig('./tasks'));
 
   // Load grunt plugins
-  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Generate documentation
