@@ -22,6 +22,7 @@
 - **eslint** has been upgraded from 22.0.0 to **23.0.0**
 - **grunt-eslint** has been removed
 - **grunt-gh-pages** has been replaced by @openveo/api ovDeployGithubPages script
+- **htmlparser2** has been upgraded from 4.1.0 to **7.1.1**
 - **yuidoc** has been replaced by **JSDoc**
 
 # 8.0.0 / 2020-05-04
