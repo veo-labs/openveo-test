@@ -25,8 +25,5 @@ nbproject
 # Documentation
 /site
 
-# Grunt
-/.grunt
-
 # Eslint
 .eslintrc
