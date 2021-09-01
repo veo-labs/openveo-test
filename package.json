@@ -33,9 +33,9 @@
   },
   "scripts": {
     "doc": "npx jsdoc -c jsdoc.json -d \"./site/$(echo $npm_package_version)\" -p -r",
+    "doc:deploy": "npx ovDeployGithubPages \"site/$(echo $npm_package_version)\"",
     "lint": "npx eslint \"*.js\" \"lib/**/*.js\"",
-    "postpublish": "npm run doc && npm run doc:deploy",
-    "doc:deploy": "npx ovDeployGithubPages \"site/$(echo $npm_package_version)\""
+    "postpublish": "npm run doc && npm run doc:deploy"
   },
   "precommit": [
     "lint"
