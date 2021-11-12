@@ -16,6 +16,7 @@
 - Fix e2e tests methods using "value" attribute which didn't work anymore since AngularJS no longer reflects "value" property into an attribute, it concerns e2e.fields.DateTimeField.getValue, e2e.fields.TextField.getValue and e2e.fields.TimeField.getValue
 - Fix setValue of the fields based on a TextField which wasn't working in headless browser
 - Fix e2e.pages.TablePage which could fail with the error "Cannot read property 'split' of null"
+- Fix e2e.pages.BackEndPage.clickMenu which was failing when trying to open an already opened sub menu
 
 ## DEPENDENCIES
 
