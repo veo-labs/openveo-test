@@ -7,6 +7,7 @@
 ## NEW FEATURES
 
 - e2e.browser.getProperty has been added to get a property (not the attribute) of an element
+- e2e.browser.isVisible has been added to test if an element is visible or not
 - Improve code documentation by replacing Yuidoc by JSDoc
 
 ## BUG FIXES
