@@ -1,4 +1,4 @@
-# 9.0.0 / YYYY-MM-DD
+# 9.0.0 / 2021-11-19
 
 ## BREAKING CHANGES
 
@@ -20,6 +20,7 @@
 
 ## DEPENDENCIES
 
+- **@openveo/api** has been upgraded from 7.0.0 to **8.0.0**
 - **chai** has been upgraded from 4.2.0 to **4.3.4**
 - **eslint** has been upgraded from 22.0.0 to **23.0.0**
 - **grunt-eslint** has been removed

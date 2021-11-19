@@ -18,7 +18,7 @@ var e2e = test.e2e;
 
 # API
 
-Documentation is available on [Github pages](https://veo-labs.github.io/openveo-test/8.0.0/index.html).
+Documentation is available on [Github pages](https://veo-labs.github.io/openveo-test/9.0.0/index.html).
 
 # Contributors
 
