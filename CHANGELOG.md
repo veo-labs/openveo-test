@@ -1,3 +1,9 @@
+# 9.0.1 / YYYY-MM-DD
+
+## DEPENDENCIES
+
+- **@openveo/api** has been upgraded from 8.0.0 to **8.0.2**
+
 # 9.0.0 / 2021-11-19
 
 ## BREAKING CHANGES
