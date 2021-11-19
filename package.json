@@ -1,6 +1,6 @@
 {
   "name": "@openveo/test",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "Test API for OpenVeo unit tests",
   "keywords": [
     "openveo",
