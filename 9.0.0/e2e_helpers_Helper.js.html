@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: e2e/helpers/Helper.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: e2e/helpers/Helper.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * @module e2e/helpers/Helper
+ */
+
+var openVeoApi = require('@openveo/api');
+var ResourceFilter = openVeoApi.storages.ResourceFilter;
+
+/**
+ * Helpers intends to use EntityProviders to manipulate the Database without requesting the web browser but staying in
+ * protractor's control flow.
+ *
+ * Do not use this directly but extend it.
+ *
+ * @example
+ * var Helper = require('@openveo/test').e2e.helpers.Helper;
+ *
+ * function MyHelper(provider) {
+ *   MyHelper.super_.call(this);
+ * }
+ *
+ * module.exports = MyHelper;
+ * util.inherits(MyHelper, Helper);
+ *
+ * var helper = new MyHelper(new MyProvider());
+ *
+ * @class Helper
+ * @constructor
+ * @param {Object} provider The entity provider that will be used by the Helper
+ */
+function Helper(provider) {
+  Object.defineProperties(this,
+
+    /** @lends module:e2e/helpers/Helper~Helper */
+    {
+
+      /**
+       * The entity provider that will be used by the Helper.
+       *
+       * @type {Object}
+       * @instance
+       * @readonly
+       */
+      provider: {value: provider},
+
+      /**
+       * Protractor control flow.
+       *
+       * @type {Object}
+       * @instance
+       * @readonly
+       */
+      flow: {value: browser.controlFlow()},
+
+      /**
+       * The list of entity properties names which "query" parameter will search on when requesting the web service.
+       *
+       * If the entity managed by the Helper is registered to be tested automatically by the core and has to be tested
+       * on the "query" parameter, this property must list all possible values of the "query" parameter of a
+       * get /entityName request.
+       *
+       * @example
+       * ['name', 'description'];
+       *
+       * @type {Array}
+       * @instance
+       * @readonly
+       */
+      textSearchProperties: {value: [], writable: true},
+
+      /**
+       * The list of entity properties which sortBy will search on when requesting the web service.
+       *
+       * If the entity managed by the Helper is registered to be tested automatically by the core and has to be tested
+       * on the "sortBy" parameter, this property must list all possible values of the "sortBy" parameter of a
+       * get /entityName request with the expected type.
+       *
+       * Possible type valus are 'string', 'number' and 'date'.
+       *
+       * @example
+       * [{
+       *   name: 'title',
+       *   type: 'string'
+       * },{
+       *   name: 'description',
+       *   type: 'string'
+       * },{
+       *   name: 'date',
+       *   type: 'number'
+       * },{
+       *   name: 'state',
+       *   type: 'number'
+       * },{
+       *   name: 'views',
+       *   type: 'number'
+       * }]
+       *
+       * @type {Array}
+       * @instance
+       */
+      sortProperties: {value: [], writable: true}
+
+    }
+
+  );
+}
+
+module.exports = Helper;
+
+/**
+ * Adds multiple entities at the same time.
+ *
+ * This method bypass the web browser to directly add entities into database.
+ *
+ * @async
+ * @param {Array} entities A list of entities to add
+ * @return {Promise} Promise resolving when entities are added with:
+ *   - **Array** The list of added entities
+ */
+Helper.prototype.addEntities = function(entities) {
+  var self = this;
+
+  return browser.waitForAngular().then(function() {
+    return self.flow.execute(function() {
+      var deferred = protractor.promise.defer();
+      var addedEntities;
+
+      // Nothing to add
+      if (!entities.length)
+        return protractor.promise.fulfilled([]);
+
+      // Create entities
+      self.provider.add(entities, function(error, addedCount, newEntities) {
+        if (error)
+          deferred.reject(error);
+        else {
+          addedEntities = newEntities;
+          deferred.fulfill();
+        }
+      });
+
+      return deferred.promise.then(function() {
+        return protractor.promise.fulfilled(addedEntities);
+      });
+    });
+  });
+};
+
+/**
+ * Adds multiple entities at the same time with automatic index.
+ *
+ * This method bypass the web browser to directly add entities into database.
+ *
+ * All created entities will have the same name suffixed by the index.
+ *
+ * @example
+ * // With MyHelper extending Helper
+ * var helper = new MyHelper();
+ * helper.addEntitiesAuto('My entity', 2).then(function(entities) {
+ *   console.log('Entity "My entity 0" created');
+ *   console.log('Entity "My entity 1" created');
+ *   console.log(entities);
+ * });
+ *
+ * @example
+ * helper.addEntitiesAuto('My entity', 2, 2).then(function(entities) {
+ *   console.log('Entity "My entity 2" created');
+ *   console.log('Entity "My entity 3" created');
+ *   console.log(entities);
+ * });
+ *
+ * @async
+ * @param {String} name Base name of the entities to add
+ * @param {Number} total Number of entities to add
+ * @param {Number} [offset=0] Index to start from for the name suffix
+ * @return {Promise} Promise resolving with the added entities
+ */
+Helper.prototype.addEntitiesAuto = function(name, total, offset) {
+  var entities = [];
+  offset = offset || 0;
+
+  for (var i = offset; i &lt; total; i++)
+    entities.push({name: name + ' ' + i});
+
+  return this.addEntities(entities);
+};
+
+/**
+ * Removes multiple entities at the same time.
+ *
+ * This method bypass the web browser to directly remove entities from database.
+ *
+ * @async
+ * @param {Array} entities A list of entities
+ * @return {Promise} Promise resolving when entities are removed
+ */
+Helper.prototype.removeEntities = function(entities) {
+  var self = this;
+
+  return browser.waitForAngular().then(function() {
+    return self.flow.execute(function() {
+      var deferred = protractor.promise.defer();
+      var entityIds = [];
+
+      for (var i = 0; i &lt; entities.length; i++)
+        entityIds.push(entities[i].id);
+
+      // Nothing to remove
+      if (!entityIds.length)
+        return protractor.promise.fulfilled();
+
+      self.provider.remove(
+        new ResourceFilter().in('id', entityIds),
+        function(error) {
+          if (error)
+            deferred.reject(error);
+          else
+            deferred.fulfill();
+        }
+      );
+
+      return deferred.promise;
+    });
+  });
+};
+
+/**
+ * Gets all entities from database.
+ *
+ * @async
+ * @param {Object} [filter] Rules to filter entities
+ * @return {Promise} Promise resolving with the list of entities
+ */
+Helper.prototype.getEntities = function(filter) {
+  var self = this;
+
+  return browser.waitForAngular().then(function() {
+    return self.flow.execute(function() {
+      var deferred = protractor.promise.defer();
+      self.provider.getAll(filter, null, {id: 'desc'}, function(error, entities) {
+        if (error)
+          throw error;
+
+        deferred.fulfill(entities);
+      });
+      return deferred.promise;
+    });
+  });
+};
+
+/**
+ * Removes all entities from database.
+ *
+ * @async
+ * @param {Array} safeEntities A list of entities to keep safe
+ * @return {Promise} Promise resolving when all entities are removed
+ */
+Helper.prototype.removeAllEntities = function(safeEntities) {
+  var self = this;
+  safeEntities = safeEntities || [];
+
+  return browser.waitForAngular().then(function() {
+    return self.flow.execute(function() {
+      var deferred = protractor.promise.defer();
+      var safeIds = safeEntities.map(function(safeEntity) {
+        return safeEntity.id;
+      });
+
+      self.provider.remove(
+        new ResourceFilter().notIn('id', safeIds),
+        function(error) {
+          if (error)
+            throw error;
+          else
+            deferred.fulfill();
+        }
+      );
+      return deferred.promise;
+    });
+  });
+};
+
+/**
+ * Translates a dictionary key.
+ *
+ * @param {String} key The key to translate
+ * @param {Object} dictionary The dictionary of translations
+ * @return {String} The translated text
+ */
+Helper.prototype.translate = function(key, dictionary) {
+  var translation;
+
+  try {
+    translation = eval('dictionary.' + key);
+    translation = translation || key;
+  } catch (error) {
+    translation = key;
+  }
+
+  return translation;
+};
+
+/**
+ * Gets entity object example to use with web service put /entityName.
+ *
+ * If the entity managed by the Helper is registered to be tested automatically by the core, it needs to implement
+ * this method which will be used to perform a put /entityName.
+ *
+ * @return {Object} The data to add
+ */
+Helper.prototype.getAddExample = function() {
+  throw new Error('Method getAddExample is not implemented by this Helper');
+};
+
+/**
+ * Gets entity object example to use with web service post /entityName.
+ *
+ * If the entity managed by the Helper is registered to be tested automatically by the core, it needs to implement
+ * this method which will be used to perform a post /entityName.
+ *
+ * @return {Object} The data to perform the update
+ */
+Helper.prototype.getUpdateExample = function() {
+  throw new Error('Method getUpdateExample is not implemented by this Helper');
+};
+
+/**
+ * Prepares an entity to be tested against an entity coming from a get /entityName/:id.
+ *
+ * All properties of the returned object must match properties from a get /entityName/:id.
+ *
+ * If the entity managed by the Helper is registered to be tested automatically by the core, it needs to implement
+ * this method which will be used to perform a post /entityName.
+ *
+ * @return {Object} The entity which will validate a get /entityName/:id response
+ */
+Helper.prototype.getValidationExample = function(entity) {
+  return entity;
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-e2e.html">e2e</a></li><li><a href="module-e2e_asserts.html">e2e/asserts</a></li><li><a href="module-e2e_asserts_TableAssert.html">e2e/asserts/TableAssert</a></li><li><a href="module-e2e_browser.html">e2e/browser</a></li><li><a href="module-e2e_fields.html">e2e/fields</a></li><li><a href="module-e2e_fields_AutoCompleteField.html">e2e/fields/AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField.html">e2e/fields/CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField.html">e2e/fields/CheckboxField</a></li><li><a href="module-e2e_fields_DateField.html">e2e/fields/DateField</a></li><li><a href="module-e2e_fields_DateTimeField.html">e2e/fields/DateTimeField</a></li><li><a href="module-e2e_fields_FakeField.html">e2e/fields/FakeField</a></li><li><a href="module-e2e_fields_Field.html">e2e/fields/Field</a></li><li><a href="module-e2e_fields_MatchField.html">e2e/fields/MatchField</a></li><li><a href="module-e2e_fields_SelectField.html">e2e/fields/SelectField</a></li><li><a href="module-e2e_fields_TagsField.html">e2e/fields/TagsField</a></li><li><a href="module-e2e_fields_TextareaField.html">e2e/fields/TextareaField</a></li><li><a href="module-e2e_fields_TextField.html">e2e/fields/TextField</a></li><li><a href="module-e2e_fields_TimeField.html">e2e/fields/TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField.html">e2e/fields/TinyMCEField</a></li><li><a href="module-e2e_helpers.html">e2e/helpers</a></li><li><a href="module-e2e_helpers_Helper.html">e2e/helpers/Helper</a></li><li><a href="module-e2e_i18n.html">e2e/i18n</a></li><li><a href="module-e2e_pages.html">e2e/pages</a></li><li><a href="module-e2e_pages_BackEndPage.html">e2e/pages/BackEndPage</a></li><li><a href="module-e2e_pages_Page.html">e2e/pages/Page</a></li><li><a href="module-e2e_pages_TablePage.html">e2e/pages/TablePage</a></li><li><a href="module-e2e_plugins.html">e2e/plugins</a></li><li><a href="module-e2e_plugins_screenshotPlugin.html">e2e/plugins/screenshotPlugin</a></li><li><a href="module-unit.html">unit</a></li><li><a href="module-unit_plugins.html">unit/plugins</a></li><li><a href="module-unit_plugins_inlineTemplatesPreprocessor.html">unit/plugins/inlineTemplatesPreprocessor</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="module-e2e_asserts_TableAssert-TableAssert.html">e2e/asserts/TableAssert~TableAssert</a></li><li><a href="module-e2e_fields_AutoCompleteField-AutoCompleteField.html">e2e/fields/AutoCompleteField~AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField-CheckboxesField.html">e2e/fields/CheckboxesField~CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField-CheckboxField.html">e2e/fields/CheckboxField~CheckboxField</a></li><li><a href="module-e2e_fields_DateField-DateField.html">e2e/fields/DateField~DateField</a></li><li><a href="module-e2e_fields_DateTimeField-DateTimeField.html">e2e/fields/DateTimeField~DateTimeField</a></li><li><a href="module-e2e_fields_FakeField-FakeField.html">e2e/fields/FakeField~FakeField</a></li><li><a href="module-e2e_fields_Field-Field.html">e2e/fields/Field~Field</a></li><li><a href="module-e2e_fields_MatchField-MatchField.html">e2e/fields/MatchField~MatchField</a></li><li><a href="module-e2e_fields_MatchField-MatchTagsField.html">e2e/fields/MatchField~MatchTagsField</a></li><li><a href="module-e2e_fields_MatchField-MatchTextField.html">e2e/fields/MatchField~MatchTextField</a></li><li><a href="module-e2e_fields_SelectField-SelectField.html">e2e/fields/SelectField~SelectField</a></li><li><a href="module-e2e_fields_TagsField-TagsField.html">e2e/fields/TagsField~TagsField</a></li><li><a href="module-e2e_fields_TextareaField-TextareaField.html">e2e/fields/TextareaField~TextareaField</a></li><li><a href="module-e2e_fields_TextField-TextField.html">e2e/fields/TextField~TextField</a></li><li><a href="module-e2e_fields_TimeField-TimeField.html">e2e/fields/TimeField~TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField-TinyMCEField.html">e2e/fields/TinyMCEField~TinyMCEField</a></li><li><a href="module-e2e_helpers_Helper-Helper.html">e2e/helpers/Helper~Helper</a></li><li><a href="module-e2e_pages_BackEndPage-BackEndPage.html">e2e/pages/BackEndPage~BackEndPage</a></li><li><a href="module-e2e_pages_Page-Page.html">e2e/pages/Page~Page</a></li><li><a href="module-e2e_pages_TablePage-TablePage.html">e2e/pages/TablePage~TablePage</a></li><li><a href="module-e2e_plugins_screenshotPlugin-ScreenshotPlugin.html">e2e/plugins/screenshotPlugin~ScreenshotPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 19 2021 14:52:13 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

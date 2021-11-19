@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: unit/plugins/karma-ng-inline-templates-preprocessor/index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: unit/plugins/karma-ng-inline-templates-preprocessor/index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Defines an inline template preprocessor.
+ *
+ * @example
+ * // Configuration example to put in your karma configuration file
+ * {
+ *   moduleName: 'my-inline-templates' // Name of the AngularJS module that will be created to hold templates
+ * }
+ *
+ * @example
+ * // Don't forget to load the module before executing your tests
+ * beforeEach(function() {
+ *   module('my-inline-templates');
+ * });
+ *
+ * @module unit/plugins/inlineTemplatesPreprocessor
+ */
+
+var htmlparser = require('htmlparser2');
+
+/**
+ * Builds the Karma plugin.
+ *
+ * @param {Object} logger Karma logger
+ * @param {Object} config Inline templates preprocessor configuration
+ * @return {Function} Preprocessor function to call for each file
+ */
+var inlineTemplatesProcessor = function(logger, config) {
+  var log = logger.create('preprocessor.ngInlineTemplates');
+  config = typeof config === 'object' ? config : {};
+
+  /**
+   * Defines inline template preprocessor function.
+   *
+   * @param {String} content The content of the file to preprocess
+   * @param {Array} file Information about the file
+   * @param {Function} done Function to call when preprocess of the file is done
+   */
+  return function(content, file, done) {
+    log.debug('Processing file ' + file.path);
+
+    // Change file extension to js to make it executed in the browser
+    file.path = file.path.replace('.html', '.js');
+    var script = false;
+    var scriptId = '';
+    var scriptContent = '';
+    var scripts = {};
+
+    // Instanciate an HTML parser
+    var parser = new htmlparser.Parser({
+
+      // Handle opening tags
+      onopentag: function(tagName, attributes) {
+
+        // Start a new AngularJS template
+        if (tagName === 'script' &amp;&amp; attributes.type === 'text/ng-template' &amp;&amp; attributes.id) {
+          log.debug('Found AngularJS inline template ' + attributes.id + ' in ' + file.originalPath);
+          script = true;
+          scriptId = attributes.id;
+        }
+
+      },
+
+      // Handle tags content
+      ontext: function(text) {
+
+        // Store script content
+        if (script)
+          scriptContent += text;
+
+      },
+
+      // Handle closing tags
+      onclosetag: function(tagName) {
+
+        // End AngularJS template
+        if (tagName === 'script' &amp;&amp; script) {
+          script = false;
+          scripts[scriptId] = scriptContent;
+          scriptContent = '';
+        }
+
+      },
+
+      // End of file
+      onend: function() {
+        var moduleName = config.moduleName || 'inline-templates';
+
+        // Build a new AngularJS module with a run function
+        var HTML = '(function() { \n' +
+        'var module; \n' +
+        'try { \n' +
+          'module = angular.module(\'' + moduleName + '\'); \n' +
+        '} \n' +
+        'catch(error) { \n' +
+          'module = angular.module(\'' + moduleName + '\', []); \n' +
+        '} \n' +
+        'module.run([\'$templateCache\', function($templateCache) { \n';
+
+        // Add every inline template into template cache
+        for (var id in scripts) {
+
+          scripts[id] = scripts[id]
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, '\\\'')
+            .replace(/\r?\n/g, '\\n\' +\n    \'');
+
+          HTML += '$templateCache.put(\'' + id + '\', \'' + scripts[id] + '\');\n';
+        }
+
+        // End run function and module declarations
+        HTML += '}]);\n })();\n';
+
+        // Return the preprocessed output
+        done(HTML);
+      }
+    }, {
+      decodeEntities: true
+    });
+
+    // Write file content to parser
+    parser.write(content);
+    parser.end();
+
+  };
+
+};
+
+inlineTemplatesProcessor.$inject = ['logger', 'config.ngInlineTemplatesPreprocessor'];
+
+module.exports = {
+  'preprocessor:ng-inline-templates': ['factory', inlineTemplatesProcessor]
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-e2e.html">e2e</a></li><li><a href="module-e2e_asserts.html">e2e/asserts</a></li><li><a href="module-e2e_asserts_TableAssert.html">e2e/asserts/TableAssert</a></li><li><a href="module-e2e_browser.html">e2e/browser</a></li><li><a href="module-e2e_fields.html">e2e/fields</a></li><li><a href="module-e2e_fields_AutoCompleteField.html">e2e/fields/AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField.html">e2e/fields/CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField.html">e2e/fields/CheckboxField</a></li><li><a href="module-e2e_fields_DateField.html">e2e/fields/DateField</a></li><li><a href="module-e2e_fields_DateTimeField.html">e2e/fields/DateTimeField</a></li><li><a href="module-e2e_fields_FakeField.html">e2e/fields/FakeField</a></li><li><a href="module-e2e_fields_Field.html">e2e/fields/Field</a></li><li><a href="module-e2e_fields_MatchField.html">e2e/fields/MatchField</a></li><li><a href="module-e2e_fields_SelectField.html">e2e/fields/SelectField</a></li><li><a href="module-e2e_fields_TagsField.html">e2e/fields/TagsField</a></li><li><a href="module-e2e_fields_TextareaField.html">e2e/fields/TextareaField</a></li><li><a href="module-e2e_fields_TextField.html">e2e/fields/TextField</a></li><li><a href="module-e2e_fields_TimeField.html">e2e/fields/TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField.html">e2e/fields/TinyMCEField</a></li><li><a href="module-e2e_helpers.html">e2e/helpers</a></li><li><a href="module-e2e_helpers_Helper.html">e2e/helpers/Helper</a></li><li><a href="module-e2e_i18n.html">e2e/i18n</a></li><li><a href="module-e2e_pages.html">e2e/pages</a></li><li><a href="module-e2e_pages_BackEndPage.html">e2e/pages/BackEndPage</a></li><li><a href="module-e2e_pages_Page.html">e2e/pages/Page</a></li><li><a href="module-e2e_pages_TablePage.html">e2e/pages/TablePage</a></li><li><a href="module-e2e_plugins.html">e2e/plugins</a></li><li><a href="module-e2e_plugins_screenshotPlugin.html">e2e/plugins/screenshotPlugin</a></li><li><a href="module-unit.html">unit</a></li><li><a href="module-unit_plugins.html">unit/plugins</a></li><li><a href="module-unit_plugins_inlineTemplatesPreprocessor.html">unit/plugins/inlineTemplatesPreprocessor</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="module-e2e_asserts_TableAssert-TableAssert.html">e2e/asserts/TableAssert~TableAssert</a></li><li><a href="module-e2e_fields_AutoCompleteField-AutoCompleteField.html">e2e/fields/AutoCompleteField~AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField-CheckboxesField.html">e2e/fields/CheckboxesField~CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField-CheckboxField.html">e2e/fields/CheckboxField~CheckboxField</a></li><li><a href="module-e2e_fields_DateField-DateField.html">e2e/fields/DateField~DateField</a></li><li><a href="module-e2e_fields_DateTimeField-DateTimeField.html">e2e/fields/DateTimeField~DateTimeField</a></li><li><a href="module-e2e_fields_FakeField-FakeField.html">e2e/fields/FakeField~FakeField</a></li><li><a href="module-e2e_fields_Field-Field.html">e2e/fields/Field~Field</a></li><li><a href="module-e2e_fields_MatchField-MatchField.html">e2e/fields/MatchField~MatchField</a></li><li><a href="module-e2e_fields_MatchField-MatchTagsField.html">e2e/fields/MatchField~MatchTagsField</a></li><li><a href="module-e2e_fields_MatchField-MatchTextField.html">e2e/fields/MatchField~MatchTextField</a></li><li><a href="module-e2e_fields_SelectField-SelectField.html">e2e/fields/SelectField~SelectField</a></li><li><a href="module-e2e_fields_TagsField-TagsField.html">e2e/fields/TagsField~TagsField</a></li><li><a href="module-e2e_fields_TextareaField-TextareaField.html">e2e/fields/TextareaField~TextareaField</a></li><li><a href="module-e2e_fields_TextField-TextField.html">e2e/fields/TextField~TextField</a></li><li><a href="module-e2e_fields_TimeField-TimeField.html">e2e/fields/TimeField~TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField-TinyMCEField.html">e2e/fields/TinyMCEField~TinyMCEField</a></li><li><a href="module-e2e_helpers_Helper-Helper.html">e2e/helpers/Helper~Helper</a></li><li><a href="module-e2e_pages_BackEndPage-BackEndPage.html">e2e/pages/BackEndPage~BackEndPage</a></li><li><a href="module-e2e_pages_Page-Page.html">e2e/pages/Page~Page</a></li><li><a href="module-e2e_pages_TablePage-TablePage.html">e2e/pages/TablePage~TablePage</a></li><li><a href="module-e2e_plugins_screenshotPlugin-ScreenshotPlugin.html">e2e/plugins/screenshotPlugin~ScreenshotPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 19 2021 14:52:13 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
