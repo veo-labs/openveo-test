@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: e2e/fields/TagsField.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: e2e/fields/TagsField.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * @module e2e/fields/TagsField
+ */
+
+var util = require('util');
+var browserExt = process.requireTest('lib/e2e/browser.js');
+var Field = process.requireTest('lib/e2e/fields/Field.js');
+
+/**
+ * Defines a form tags field.
+ *
+ * Use [Field.get]{@link module:e2e/fields/Field~Field.get} method to get an instance of TagsField.
+ *
+ * @example
+ * var Field = require('@openveo/test').e2e.fields.Field;
+ *
+ * var TagsField = Field.get({
+ *   type: 'tags',
+ *   name: 'My field',
+ *   baseElement: element(by.css('form'))
+ * });
+ *
+ * @class TagsField
+ * @extends module:e2e/fields/Field~Field
+ * @constructor
+ * @param {Object} conf A field configuration object
+ */
+function TagsField(conf) {
+  TagsField.super_.call(this, conf);
+
+  Object.defineProperties(this,
+
+    /** @lends module:e2e/fields/TagsField~TagsField */
+    {
+
+      /**
+       * The list of available options.
+       *
+       * @type {Array}
+       * @instance
+       * @readonly
+       */
+      availableOptions: {value: conf.availableOptions}
+
+    }
+
+  );
+}
+
+module.exports = TagsField;
+util.inherits(TagsField, Field);
+
+/**
+ * Selects a tag in auto complete.
+ *
+ * @method selectTagInAutoComplete
+ * @private
+ * @memberof module:e2e/fields/TagsField~TagsField
+ * @this module:e2e/fields/TagsField~TagsField
+ * @param {String} The value of the tag to select in the auto complete. It should be the same value as the
+ * one in the available options
+ * @return {Promise} Promise resolving when given tag has been selected in auto complete
+ */
+function selectTagInAutoComplete(tag) {
+  var tagName;
+
+  // Find the name of the tag from available options
+  for (var i = 0; i &lt; this.availableOptions.length; i++) {
+    if (this.availableOptions[i].value === tag) {
+      tagName = this.availableOptions[i].name;
+      break;
+    }
+  }
+
+  return this.getElement().then(function(elementFinder) {
+    elementFinder.all(by.css('.ov-field-tags-auto-complete li')).each(function(autoCompleteElement) {
+      autoCompleteElement.getText().then(function(text) {
+        if (text === tagName)
+          browserExt.click(autoCompleteElement);
+      });
+    });
+  });
+}
+
+/**
+ * Gets field values, the list of tags.
+ *
+ * @example
+ * myField.getValue().then(function(tags) {
+ *   console.log(tags);
+ * });
+ *
+ * @return {Promise} Promise resolving with the list of tags
+ */
+TagsField.prototype.getValue = function() {
+  return this.getElement().then(function(elementFinder) {
+    var deferred = protractor.promise.defer();
+    var tagElements = elementFinder.all(by.css('ul')).get(0).all(by.css('li'));
+    var promises = [];
+
+    // Get text of each tag
+    tagElements.each(function(tagElement, index) {
+      promises.push(tagElement.getText());
+    }).then(function() {
+      protractor.promise.all(promises).then(function(tags) {
+        deferred.fulfill(tags);
+      }, function(error) {
+        deferred.reject(error);
+      });
+    });
+
+    return deferred.promise;
+  });
+};
+
+/**
+ * Sets field value.
+ *
+ * @example
+ * myField.setValue(['tag 1', 'tag 2']).then(function() {
+ *   console.log('Value set');
+ * });
+ *
+ * @param {Array} [values=[]] Field's list of tags
+ * @return {Promise} Promise resolving when the field is filled
+ */
+TagsField.prototype.setValue = function(values) {
+  var self = this;
+
+  if (!values || !values.length)
+    return this.clear();
+
+  return this.clear().then(function() {
+    return self.getElement();
+  }).then(function(elementFinder) {
+    var fieldElement = elementFinder.element(by.css('input'));
+    var promises = [fieldElement.clear()];
+
+    // Add tags one by one
+    for (var i = 0; i &lt; values.length; i++) {
+      promises.push(fieldElement.sendKeys(values[i] + protractor.Key.ENTER));
+      promises.push(fieldElement.clear());
+    }
+
+    return protractor.promise.all(promises);
+  });
+};
+
+/**
+ * Sets field value using auto completion.
+ *
+ * @example
+ * myField.setValueUsingAutoCompletion(['tag 1', 'tag 2']).then(function() {
+ *   console.log('Value set');
+ * });
+ *
+ * @param {Array} [values=[]] Field's list of tags
+ * @return {Promise} Promise resolving when the field is filled
+ */
+TagsField.prototype.setValueUsingAutoCompletion = function(values) {
+  var self = this;
+
+  if (!values || !values.length)
+    return this.clear();
+
+  return this.clear().then(function() {
+    return self.getElement();
+  }).then(function(elementFinder) {
+    var fieldElement = elementFinder.element(by.css('input'));
+    var promises = [fieldElement.clear()];
+
+    // Add tags one by one
+    for (var i = 0; i &lt; values.length; i++) {
+      promises.push(fieldElement.sendKeys(values[i]));
+      promises.push(selectTagInAutoComplete.call(self, values[i]));
+      promises.push(fieldElement.clear());
+    }
+
+    return protractor.promise.all(promises);
+  });
+};
+
+/**
+ * Clears field value by removing all tags.
+ *
+ * @example
+ * myField.clear().then(function() {
+ *   console.log('Field cleared');
+ * });
+ *
+ * @return {Promise} Promise resolving when the field is cleared
+ */
+TagsField.prototype.clear = function() {
+  return this.getElement().then(function(elementFinder) {
+    var deferred = protractor.promise.defer();
+    var removeLinkElements = elementFinder.all(by.css('a'));
+
+    // Click on each tag remove link
+    removeLinkElements.each(function(removeLinkElement, index) {
+      browserExt.click(removeLinkElement);
+    }).then(function() {
+      deferred.fulfill();
+    });
+
+    return deferred.promise;
+  });
+};
+
+/**
+ * Tests if a field is considered as on error.
+ *
+ * @example
+ * myField.isOnError().then(function(isOnError) {
+ *   console.log('Is field on error ? ' + isOnError);
+ * });
+ *
+ * @return {Promise} Promise resolving with a boolean indicating if the field is on error
+ */
+TagsField.prototype.isOnError = function() {
+  return this.getElement().then(function(elementFinder) {
+    return elementFinder.getAttribute('class').then(function(classes) {
+      var errorClass = 'has-error';
+      var reg = new RegExp('^' + errorClass + ' |' + errorClass + ' |' + errorClass + ' |' + errorClass + '$');
+      return protractor.promise.fulfilled(reg.test(classes));
+    });
+  });
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-e2e.html">e2e</a></li><li><a href="module-e2e_asserts.html">e2e/asserts</a></li><li><a href="module-e2e_asserts_TableAssert.html">e2e/asserts/TableAssert</a></li><li><a href="module-e2e_browser.html">e2e/browser</a></li><li><a href="module-e2e_fields.html">e2e/fields</a></li><li><a href="module-e2e_fields_AutoCompleteField.html">e2e/fields/AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField.html">e2e/fields/CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField.html">e2e/fields/CheckboxField</a></li><li><a href="module-e2e_fields_DateField.html">e2e/fields/DateField</a></li><li><a href="module-e2e_fields_DateTimeField.html">e2e/fields/DateTimeField</a></li><li><a href="module-e2e_fields_FakeField.html">e2e/fields/FakeField</a></li><li><a href="module-e2e_fields_Field.html">e2e/fields/Field</a></li><li><a href="module-e2e_fields_MatchField.html">e2e/fields/MatchField</a></li><li><a href="module-e2e_fields_SelectField.html">e2e/fields/SelectField</a></li><li><a href="module-e2e_fields_TagsField.html">e2e/fields/TagsField</a></li><li><a href="module-e2e_fields_TextareaField.html">e2e/fields/TextareaField</a></li><li><a href="module-e2e_fields_TextField.html">e2e/fields/TextField</a></li><li><a href="module-e2e_fields_TimeField.html">e2e/fields/TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField.html">e2e/fields/TinyMCEField</a></li><li><a href="module-e2e_helpers.html">e2e/helpers</a></li><li><a href="module-e2e_helpers_Helper.html">e2e/helpers/Helper</a></li><li><a href="module-e2e_i18n.html">e2e/i18n</a></li><li><a href="module-e2e_pages.html">e2e/pages</a></li><li><a href="module-e2e_pages_BackEndPage.html">e2e/pages/BackEndPage</a></li><li><a href="module-e2e_pages_Page.html">e2e/pages/Page</a></li><li><a href="module-e2e_pages_TablePage.html">e2e/pages/TablePage</a></li><li><a href="module-e2e_plugins.html">e2e/plugins</a></li><li><a href="module-e2e_plugins_screenshotPlugin.html">e2e/plugins/screenshotPlugin</a></li><li><a href="module-unit.html">unit</a></li><li><a href="module-unit_plugins.html">unit/plugins</a></li><li><a href="module-unit_plugins_inlineTemplatesPreprocessor.html">unit/plugins/inlineTemplatesPreprocessor</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="module-e2e_asserts_TableAssert-TableAssert.html">e2e/asserts/TableAssert~TableAssert</a></li><li><a href="module-e2e_fields_AutoCompleteField-AutoCompleteField.html">e2e/fields/AutoCompleteField~AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField-CheckboxesField.html">e2e/fields/CheckboxesField~CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField-CheckboxField.html">e2e/fields/CheckboxField~CheckboxField</a></li><li><a href="module-e2e_fields_DateField-DateField.html">e2e/fields/DateField~DateField</a></li><li><a href="module-e2e_fields_DateTimeField-DateTimeField.html">e2e/fields/DateTimeField~DateTimeField</a></li><li><a href="module-e2e_fields_FakeField-FakeField.html">e2e/fields/FakeField~FakeField</a></li><li><a href="module-e2e_fields_Field-Field.html">e2e/fields/Field~Field</a></li><li><a href="module-e2e_fields_MatchField-MatchField.html">e2e/fields/MatchField~MatchField</a></li><li><a href="module-e2e_fields_MatchField-MatchTagsField.html">e2e/fields/MatchField~MatchTagsField</a></li><li><a href="module-e2e_fields_MatchField-MatchTextField.html">e2e/fields/MatchField~MatchTextField</a></li><li><a href="module-e2e_fields_SelectField-SelectField.html">e2e/fields/SelectField~SelectField</a></li><li><a href="module-e2e_fields_TagsField-TagsField.html">e2e/fields/TagsField~TagsField</a></li><li><a href="module-e2e_fields_TextareaField-TextareaField.html">e2e/fields/TextareaField~TextareaField</a></li><li><a href="module-e2e_fields_TextField-TextField.html">e2e/fields/TextField~TextField</a></li><li><a href="module-e2e_fields_TimeField-TimeField.html">e2e/fields/TimeField~TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField-TinyMCEField.html">e2e/fields/TinyMCEField~TinyMCEField</a></li><li><a href="module-e2e_helpers_Helper-Helper.html">e2e/helpers/Helper~Helper</a></li><li><a href="module-e2e_pages_BackEndPage-BackEndPage.html">e2e/pages/BackEndPage~BackEndPage</a></li><li><a href="module-e2e_pages_Page-Page.html">e2e/pages/Page~Page</a></li><li><a href="module-e2e_pages_TablePage-TablePage.html">e2e/pages/TablePage~TablePage</a></li><li><a href="module-e2e_plugins_screenshotPlugin-ScreenshotPlugin.html">e2e/plugins/screenshotPlugin~ScreenshotPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 19 2021 15:36:29 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

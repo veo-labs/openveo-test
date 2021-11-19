@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: e2e/browser</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: e2e/browser</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Helps using some protractor browser's features.</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".click"><span class="type-signature">(static) </span>click<span class="signature">(elementFinder, delay<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Clicks on an element.</p>
+<p>There are many issues with click events in web drivers, the same click is sometimes performed, and sometimes not.
+Moving the cursor to the element then performing a click seems to be more stable.
+It also checks if the element is clickable before clicking on it.</p>
+<p>Also the banner in position fix prevent the driver to click on elements behind it. To avoid this problem, scroll
+up to the element minus the height of the banner.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elementFinder</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The element to click</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>delay</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The delay in milliseconds to wait before clicking on the element</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving when element is clicked</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".deactivateAnimations"><span class="type-signature">(static) </span>deactivateAnimations<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Disables all animations.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var browserAPI = require('@openveo/test').e2e.browser;
+browserAPI.deactivateAnimations();</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getProperty"><span class="type-signature">(static) </span>getProperty<span class="signature">(elementFinder, property)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Gets property of an element.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elementFinder</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The finder of the element to get property from</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The property of the element to get value from</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line173">line 173</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving with the value of the property</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var browserAPI = require('@openveo/test').e2e.browser;
+browserAPI.getProperty(element(by.css('input[type=checkbox]')), 'checked').then(function(isChecked) {
+  console.log('Checkbox is checked');
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".init"><span class="type-signature">(static) </span>init<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sets process.protractorConf to the configuration of the actual capability.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving when init is done</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var browserAPI = require('@openveo/test').e2e.browser;
+browserAPI.init();</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".isVisible"><span class="type-signature">(static) </span>isVisible<span class="signature">(elementFinder)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Tests if an element is visible.</p>
+<p>An element is considered visible when it exists, is visible and has a non zero height.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elementFinder</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The finder of the element to test</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line192">line 192</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving with true if the element is visible, false otherwise</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".setSize"><span class="type-signature">(static) </span>setSize<span class="signature">(width, height)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sets browser's size.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The browser width in px</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The browser height in px</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving when the browser size is set</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var browserAPI = require('@openveo/test').e2e.browser;
+browserAPI.setSize(800, 600);</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".takeScreenshot"><span class="type-signature">(static) </span>takeScreenshot<span class="signature">(file, fileName)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Takes a screenshot of the actual browser state.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The screenshot file path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fileName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The screenshot file name without the extension</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line138">line 138</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Promise resolving when the capture is made</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var browserAPI = require('@openveo/test').e2e.browser;
+browserAPI.takeScreenshot('/tmp', 'myScreenshot');</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".writeScreenShot"><span class="type-signature">(private, static) </span>writeScreenShot<span class="signature">(data, file, callback)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Writes screenshot to a file.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Screenshot data</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>file</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Screenshot final file path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#callback">callback</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The function to call when done</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="e2e_browser.js.html">e2e/browser.js</a>, <a href="e2e_browser.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-e2e.html">e2e</a></li><li><a href="module-e2e_asserts.html">e2e/asserts</a></li><li><a href="module-e2e_asserts_TableAssert.html">e2e/asserts/TableAssert</a></li><li><a href="module-e2e_browser.html">e2e/browser</a></li><li><a href="module-e2e_fields.html">e2e/fields</a></li><li><a href="module-e2e_fields_AutoCompleteField.html">e2e/fields/AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField.html">e2e/fields/CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField.html">e2e/fields/CheckboxField</a></li><li><a href="module-e2e_fields_DateField.html">e2e/fields/DateField</a></li><li><a href="module-e2e_fields_DateTimeField.html">e2e/fields/DateTimeField</a></li><li><a href="module-e2e_fields_FakeField.html">e2e/fields/FakeField</a></li><li><a href="module-e2e_fields_Field.html">e2e/fields/Field</a></li><li><a href="module-e2e_fields_MatchField.html">e2e/fields/MatchField</a></li><li><a href="module-e2e_fields_SelectField.html">e2e/fields/SelectField</a></li><li><a href="module-e2e_fields_TagsField.html">e2e/fields/TagsField</a></li><li><a href="module-e2e_fields_TextareaField.html">e2e/fields/TextareaField</a></li><li><a href="module-e2e_fields_TextField.html">e2e/fields/TextField</a></li><li><a href="module-e2e_fields_TimeField.html">e2e/fields/TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField.html">e2e/fields/TinyMCEField</a></li><li><a href="module-e2e_helpers.html">e2e/helpers</a></li><li><a href="module-e2e_helpers_Helper.html">e2e/helpers/Helper</a></li><li><a href="module-e2e_i18n.html">e2e/i18n</a></li><li><a href="module-e2e_pages.html">e2e/pages</a></li><li><a href="module-e2e_pages_BackEndPage.html">e2e/pages/BackEndPage</a></li><li><a href="module-e2e_pages_Page.html">e2e/pages/Page</a></li><li><a href="module-e2e_pages_TablePage.html">e2e/pages/TablePage</a></li><li><a href="module-e2e_plugins.html">e2e/plugins</a></li><li><a href="module-e2e_plugins_screenshotPlugin.html">e2e/plugins/screenshotPlugin</a></li><li><a href="module-unit.html">unit</a></li><li><a href="module-unit_plugins.html">unit/plugins</a></li><li><a href="module-unit_plugins_inlineTemplatesPreprocessor.html">unit/plugins/inlineTemplatesPreprocessor</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="module-e2e_asserts_TableAssert-TableAssert.html">e2e/asserts/TableAssert~TableAssert</a></li><li><a href="module-e2e_fields_AutoCompleteField-AutoCompleteField.html">e2e/fields/AutoCompleteField~AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField-CheckboxesField.html">e2e/fields/CheckboxesField~CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField-CheckboxField.html">e2e/fields/CheckboxField~CheckboxField</a></li><li><a href="module-e2e_fields_DateField-DateField.html">e2e/fields/DateField~DateField</a></li><li><a href="module-e2e_fields_DateTimeField-DateTimeField.html">e2e/fields/DateTimeField~DateTimeField</a></li><li><a href="module-e2e_fields_FakeField-FakeField.html">e2e/fields/FakeField~FakeField</a></li><li><a href="module-e2e_fields_Field-Field.html">e2e/fields/Field~Field</a></li><li><a href="module-e2e_fields_MatchField-MatchField.html">e2e/fields/MatchField~MatchField</a></li><li><a href="module-e2e_fields_MatchField-MatchTagsField.html">e2e/fields/MatchField~MatchTagsField</a></li><li><a href="module-e2e_fields_MatchField-MatchTextField.html">e2e/fields/MatchField~MatchTextField</a></li><li><a href="module-e2e_fields_SelectField-SelectField.html">e2e/fields/SelectField~SelectField</a></li><li><a href="module-e2e_fields_TagsField-TagsField.html">e2e/fields/TagsField~TagsField</a></li><li><a href="module-e2e_fields_TextareaField-TextareaField.html">e2e/fields/TextareaField~TextareaField</a></li><li><a href="module-e2e_fields_TextField-TextField.html">e2e/fields/TextField~TextField</a></li><li><a href="module-e2e_fields_TimeField-TimeField.html">e2e/fields/TimeField~TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField-TinyMCEField.html">e2e/fields/TinyMCEField~TinyMCEField</a></li><li><a href="module-e2e_helpers_Helper-Helper.html">e2e/helpers/Helper~Helper</a></li><li><a href="module-e2e_pages_BackEndPage-BackEndPage.html">e2e/pages/BackEndPage~BackEndPage</a></li><li><a href="module-e2e_pages_Page-Page.html">e2e/pages/Page~Page</a></li><li><a href="module-e2e_pages_TablePage-TablePage.html">e2e/pages/TablePage~TablePage</a></li><li><a href="module-e2e_plugins_screenshotPlugin-ScreenshotPlugin.html">e2e/plugins/screenshotPlugin~ScreenshotPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 19 2021 15:36:30 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

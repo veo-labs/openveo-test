@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: e2e/assertions/TableAssert.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: e2e/assertions/TableAssert.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * @module e2e/asserts/TableAssert
+ */
+
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+var browserExt = process.requireTest('lib/e2e/browser.js');
+
+// Load assertion library
+var assert = chai.assert;
+chai.use(chaiAsPromised);
+
+/**
+ * Defines a table assertion helper to help writing assertions for table pages.
+ *
+ * @example
+ * var TableAssert = require('@openveo/test').e2e.asserts.TableAssert;
+ *
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ *
+ * @class TableAssert
+ * @constructor
+ * @param {module:e2e/pages/TablePage~TablePage} page The table page to test
+ * @param {module:e2e/helpers/Helper~Helper} helper The helper to manipulate entities without interacting with the web
+ * browser
+ */
+function TableAssert(page, helper) {
+  Object.defineProperties(this,
+
+    /** @lends module:e2e/asserts/TableAssert~TableAssert */
+    {
+
+      /**
+       * The page containing the table to test.
+       *
+       * @type {module:e2e/pages/TablePage~TablePage}
+       * @instance
+       * @readonly
+       */
+      page: {value: page},
+
+      /**
+       * The helper to manipulate entities.
+       *
+       * @type {module:e2e/helpers/Helper~Helper}
+       * @instance
+       * @readonly
+       */
+      helper: {value: helper}
+
+    }
+
+  );
+}
+
+module.exports = TableAssert;
+
+/**
+ * Checks that table navigation is working.
+ *
+ * Use table navigation links to navigate on pages and verify, on each page, the current page, total pages,
+ * total lines and the number of lines in the page.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkPagination(50, 10);
+ *
+ * @private
+ * @method checkNavigation
+ * @memberof module:e2e/asserts/TableAssert~TableAssert
+ * @this module:e2e/asserts/TableAssert~TableAssert
+ * @param {Number} totalElements The total number of elements
+ * @param {Number} numberPerPage The number of elements displayed per page
+ * @param {Number} [index] The page index
+ * @return {Promise} Promise resolving when navigation has been checked
+ */
+function checkNavigation(totalElements, numberPerPage, index) {
+  index = index || 1;
+  var self = this;
+  var totalPages = Math.ceil(totalElements / numberPerPage);
+
+  if (index &lt;= totalPages) {
+
+    // Select page
+    return this.page.selectPage(index).then(function() {
+
+      // Calculate the theorical total number of elements in this page
+      var linesNumber = numberPerPage;
+
+      // Last page
+      if (index === totalPages)
+        linesNumber = numberPerPage - ((numberPerPage * index) - totalElements);
+
+      // Check navigation
+      assert.eventually.equal(self.page.getCurrentPage(), index, 'Current page incorrect');
+      assert.eventually.equal(self.page.getTotalPages(), totalPages, 'Total pages incorrect');
+      assert.eventually.equal(self.page.getTotalLines(), totalElements, 'Total lines incorrect');
+      assert.eventually.equal(self.page.getLinesInPageNumber(), linesNumber, 'Number of lines in page incorrect');
+
+      return browser.waitForAngular();
+    }).then(function() {
+      return checkNavigation.call(self, totalElements, numberPerPage, ++index);
+    });
+  } else {
+    return protractor.promise.fulfilled();
+  }
+}
+
+/**
+ * Checks if lines are correctly sorted for both ascending and descending order.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using helper addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkSort('My column');
+ *
+ * @param {String} property The name of the column to sort on
+ * @return {Promise} Promise resolving when sort has been checked
+ */
+TableAssert.prototype.checkSort = function(property) {
+  var self = this;
+  var totalLinesInPage;
+  var totalLinesToAdd = 2;
+  var name = 'test sort';
+  var lines;
+
+  return browser.waitForAngular().then(function() {
+
+    // Add lines
+    self.helper.addEntitiesAuto(name, totalLinesToAdd).then(function(addedLines) {
+      lines = addedLines;
+      return self.page.refresh();
+    });
+
+    // Select first page
+    self.page.selectPage(1);
+
+    // Get the number of lines in the page
+    self.page.getLinesInPageNumber().then(function(total) {
+      totalLinesInPage = total;
+    });
+
+    // Sort by property asc and verify that values are correctly sorted
+    self.page.sortBy(property, true);
+    self.page.getLineValues(property).then(function(values) {
+      var sortedValues = values.slice().sort();
+
+      for (var i = 0; i &lt; totalLinesInPage.length; i++)
+        assert.equal(values[i], sortedValues[i]);
+    });
+
+    // Sort by property desc and verify that values are correctly sorted
+    self.page.sortBy(property, false);
+    self.page.getLineValues(property).then(function(values) {
+      var sortedValues = values.slice().sort().reverse();
+
+      for (var i = 0; i &lt; totalLinesInPage.length; i++)
+        assert.equal(values[i], sortedValues[i]);
+    });
+
+    return browser.waitForAngular().then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+
+  });
+};
+
+/**
+ * Checks if buttons to change the number of displayed items per page are displayed correctly depending on the
+ * actual number of lines in the table.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkItemsPerPageButtons();
+ *
+ * @private
+ * @method checkItemsPerPageButtons
+ * @memberof module:e2e/asserts/TableAssert~TableAssert
+ * @this module:e2e/asserts/TableAssert~TableAssert
+ * @return {Promise} Promise resolving when buttons have been checked
+ */
+function checkItemsPerPageButtons() {
+  var self = this;
+
+  // Get the total number of lines (all pages combined)
+  return this.page.getTotalLines().then(function(totalLines) {
+    if (totalLines &lt; 6) {
+
+      // Only one page
+
+      assert.eventually.equal(self.page.itemsPerPageLinkElements.count(), 0);
+    } else {
+
+      // Several pages
+
+      var expectedNumberOfButtons = Math.min(Math.ceil(totalLines / 10) + 1, 4);
+      assert.eventually.equal(self.page.itemsPerPageLinkElements.count(), expectedNumberOfButtons);
+    }
+  });
+}
+
+/**
+ * Checks if buttons to change the number of displayed items per page are correctly displayed regarding the
+ * total number of lines.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkItemsPerPage();
+ *
+ * @return {Promise} Promise resolving when buttons per page have been checked
+ */
+TableAssert.prototype.checkItemsPerPage = function() {
+  var self = this;
+  var totalLinesToAdd = 31;
+  var i = 0;
+  var query = 'test items per page buttons';
+  var lines = [];
+  var search = {query: query};
+
+  // Verify buttons to change the number of displayed items
+  return this.page.search(search).then(function() {
+    checkItemsPerPageButtons.call(self);
+
+    // Add lines 6 lines
+    self.helper.addEntitiesAuto(query, i + 6).then(function(addedLines) {
+      self.page.refresh();
+      self.page.search(search);
+      lines = lines.concat(addedLines);
+    });
+    i += 6;
+
+    // Verify buttons to change the number of displayed items
+    checkItemsPerPageButtons.call(self);
+
+    // Add lines to have 11 lines
+    self.helper.addEntitiesAuto(query, 5, i + 1).then(function(addedLines) {
+      self.page.refresh();
+      self.page.search(search);
+      lines = lines.concat(addedLines);
+    });
+    i += 5;
+
+    // Verify buttons to change the number of displayed items
+    checkItemsPerPageButtons.call(self);
+
+    // Add 10 lines by 10 lines and verify, each time, that a new button to change the number of displayed items per
+    // page is added
+    while (i &lt; totalLinesToAdd) {
+
+      self.helper.addEntitiesAuto(query, Math.min(i + 10, totalLinesToAdd), i).then(function(addedLines) {
+        self.page.refresh();
+        self.page.search(search);
+        lines = lines.concat(addedLines);
+      });
+
+      i = Math.min(i + 10, totalLinesToAdd);
+
+      // Verify buttons to change the number of displayed items
+      checkItemsPerPageButtons.call(self);
+    }
+
+    // Clear search engine
+    self.page.clearSearch();
+
+    return browser.waitForAngular().then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+  });
+};
+
+/**
+ * Checks if removing several lines at the same time works correctly.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkMassiveRemove();
+ *
+ * @return {Promise} Promise resolving when massive remove has been checked
+ */
+TableAssert.prototype.checkMassiveRemove = function() {
+  var self = this;
+  var totalLinesToAdd = 4;
+  var query = 'test massive remove';
+  var search = {query: query};
+
+  return browser.waitForAngular().then(function() {
+
+    // Add lines
+    self.helper.addEntitiesAuto(query, totalLinesToAdd).then(function() {
+      self.page.refresh();
+
+      // Search for those lines
+      self.page.search(search);
+
+    });
+
+    // Select the first half of lines
+    for (var i = 0; i &lt; (totalLinesToAdd / 2); i++)
+      self.page.selectLine(query + ' ' + i);
+
+    // Remove first half
+    self.page.removeAllSelectedLinesInPage();
+
+    // Remove last half of applications
+    self.page.removeAllLinesInPage();
+
+    // Clear search fields
+    return self.page.clearSearch();
+
+  });
+};
+
+/**
+ * Checks if pagination works correctly.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkPagination();
+ *
+ * @return {Promise} Promise resolving when pagination has been checked
+ */
+TableAssert.prototype.checkPagination = function() {
+  var self = this;
+  var lines;
+  var totalLinesToAdd = 31;
+  var query = 'test pagination';
+  var search = {query: query};
+
+  return browser.waitForAngular().then(function() {
+
+    // Add lines
+    self.helper.addEntitiesAuto(query, totalLinesToAdd).then(function(addedLines) {
+      self.page.refresh();
+      self.page.search(search);
+      lines = addedLines;
+    });
+
+    // Test pagination
+    self.page.getTotalLines().then(function(totalLines) {
+      var itemsPerPage = [5, 10, 20, 30];
+
+      for (var i = 0; i &lt; itemsPerPage.length; i++) {
+        var lastIndex = (i - 1) || 0;
+        var itemPerPage = itemsPerPage[i];
+        if (totalLines > itemsPerPage[lastIndex]) {
+          self.page.setLinesNumber(itemPerPage);
+          checkNavigation.call(self, totalLines, itemPerPage);
+        }
+      }
+    });
+
+    // Clear search engine
+    self.page.clearSearch();
+
+    return browser.waitForAngular().then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+
+  });
+
+};
+
+/**
+ * Checks if search engine works correctly.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ *
+ * var expectedValues = ['Test 1', 'Test 2'];
+ * var search = { name: 'Name' };
+ *
+ * // Execute search and get all values of column 'Name' then compare this values to the expected values
+ * tableAssert.checkSearch(search, expectedValues, 'Name');
+ *
+ * @param {Object} search A search description object
+ * @param {Array} expectedValues The expected list of line values corresponding to the research
+ * @param {String} columnName The name of the column to extract value from and compare to expectedValues
+ * @return {Promise} Promise resolving when search has been checked
+ */
+TableAssert.prototype.checkSearch = function(search, expectedValues, columnName) {
+  var self = this;
+
+  // Execute search
+  return this.page.search(search).then(function() {
+
+    // Get all line values after search
+    self.page.getLineValues(columnName).then(function(values) {
+      for (var i = 0; i &lt; expectedValues.length; i++)
+        assert.ok(values.indexOf(expectedValues[i]) >= 0);
+
+      // Check if values correspond to expected ones
+      assert.equal(values.length, expectedValues.length, expectedValues.length + ' line(s) must correspond to ' +
+                   'the search');
+
+    });
+
+    return self.page.clearSearch();
+
+  });
+};
+
+/**
+ * Checks if canceling a remove action is working correctly.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkCancelRemove();
+ *
+ * @return {Promise} Promise resolving when cancel is checked
+ */
+TableAssert.prototype.checkCancelRemove = function() {
+  var self = this;
+  var name = 'test cancel';
+  var lines;
+
+  return browser.waitForAngular().then(function() {
+
+    // Create line
+    self.helper.addEntitiesAuto(name, 1).then(function(addedLines) {
+      lines = addedLines;
+      self.page.refresh();
+    });
+
+    // Perform remove action and cancel it
+    self.page.performAction(name + ' 0', self.page.translations.CORE.UI.REMOVE);
+    browser.wait(self.page.EC.visibilityOf(self.page.dialogElement), 1000, 'Missing confirmation dialog');
+    self.page.cancelAction();
+
+    return browser.waitForAngular().then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+
+  });
+
+};
+
+/**
+ * Checks if selecting lines works.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkLinesSelection();
+ *
+ * @param {String} nameProperty The property holding the name of the entity
+ * @return {Promise} Promise resolving when selection have been checked
+ */
+TableAssert.prototype.checkLinesSelection = function(nameProperty) {
+  var self = this;
+  var name = 'test lines selection';
+  var lines;
+
+  return browser.waitForAngular().then(function() {
+
+    // Create lines
+    self.helper.addEntitiesAuto(name, 2).then(function(addedLines) {
+      self.page.refresh();
+      lines = addedLines;
+    }).then(function() {
+
+      // Search for those lines
+      return self.page.search({query: name});
+
+    }).then(function() {
+
+      // Select all lines using global checkbox
+      browserExt.click(self.page.selectAllElement);
+
+      // Check that all lines are selected
+      lines.forEach(function(line) {
+        assert.eventually.ok(self.page.isSelectedLine(line[nameProperty || 'name']));
+      });
+
+      // Check that action button is displayed
+      assert.eventually.ok(self.page.actionsButtonElement.isPresent());
+
+      // Unselect all lines using global checkbox
+      browserExt.click(self.page.selectAllElement);
+
+      // Select lines one by one
+      lines.forEach(function(line) {
+        self.page.selectLine(line[nameProperty || 'name']);
+      });
+
+      // Check that global checkbox is selected
+      assert.eventually.ok(browserExt.getProperty(self.page.selectAllElement, 'checked'));
+
+      // Check that action button is displayed
+      assert.eventually.ok(self.page.actionsButtonElement.isPresent());
+
+      // Deselect one line
+      self.page.deselectLine(lines[0][nameProperty || 'name']);
+
+      // Check that global checkbox is not selected
+      assert.eventually.notOk(browserExt.getProperty(self.page.selectAllElement, 'checked'));
+
+      // Check that action button is displayed
+      assert.eventually.ok(self.page.actionsButtonElement.isPresent());
+
+      // Deselect all lines
+      lines.forEach(function(line) {
+        self.page.deselectLine(line[nameProperty || 'name']);
+      });
+
+      // Check that global checkbox is not selected
+      assert.eventually.notOk(browserExt.getProperty(self.page.selectAllElement, 'checked'));
+
+      // Check that action button is not displayed
+      assert.eventually.notOk(self.page.actionsButtonElement.isPresent());
+
+    }).then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+  });
+
+};
+
+/**
+ * Checks that line actions and global actions are the same.
+ *
+ * You don't need to add lines to the table before calling this method. Necessary lines are automatically added
+ * and then removed using page addEntitiesAuto / removeEntities methods.
+ *
+ * @example
+ * // With MyTablePage extending TablePage
+ * var page = new MyTablePage();
+ * var helper = new MyHelper(new MyProvider());
+ * var tableAssert = new TableAssert(page, helper);
+ * tableAssert.checkActions(['Action 1', 'Action 2']);
+ *
+ * @param {Array} expectedActions Expected actions
+ * @return {Promise} Promise resolving when actions have been checked
+ */
+TableAssert.prototype.checkActions = function(expectedActions) {
+  var self = this;
+  var name = 'test actions';
+  var lines;
+
+  return browser.waitForAngular().then(function() {
+
+    // Create lines
+    self.helper.addEntitiesAuto(name, 2).then(function(addedLines) {
+      self.page.refresh();
+      lines = addedLines;
+    }).then(function() {
+
+      // Search for those lines
+      return self.page.search({query: name});
+
+    }).then(function() {
+
+      // Select all lines using global checkbox
+      browserExt.click(self.page.selectAllElement);
+
+      // Validate line actions
+      lines.forEach(function(line) {
+        assert.eventually.sameMembers(self.page.getLineActions(line.name), expectedActions);
+      });
+
+      // Validate global actions
+      assert.eventually.sameMembers(self.page.getGlobalActions(), expectedActions);
+
+    }).then(function() {
+
+      // Removes lines
+      self.helper.removeEntities(lines);
+      return self.page.refresh();
+
+    });
+  });
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-e2e.html">e2e</a></li><li><a href="module-e2e_asserts.html">e2e/asserts</a></li><li><a href="module-e2e_asserts_TableAssert.html">e2e/asserts/TableAssert</a></li><li><a href="module-e2e_browser.html">e2e/browser</a></li><li><a href="module-e2e_fields.html">e2e/fields</a></li><li><a href="module-e2e_fields_AutoCompleteField.html">e2e/fields/AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField.html">e2e/fields/CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField.html">e2e/fields/CheckboxField</a></li><li><a href="module-e2e_fields_DateField.html">e2e/fields/DateField</a></li><li><a href="module-e2e_fields_DateTimeField.html">e2e/fields/DateTimeField</a></li><li><a href="module-e2e_fields_FakeField.html">e2e/fields/FakeField</a></li><li><a href="module-e2e_fields_Field.html">e2e/fields/Field</a></li><li><a href="module-e2e_fields_MatchField.html">e2e/fields/MatchField</a></li><li><a href="module-e2e_fields_SelectField.html">e2e/fields/SelectField</a></li><li><a href="module-e2e_fields_TagsField.html">e2e/fields/TagsField</a></li><li><a href="module-e2e_fields_TextareaField.html">e2e/fields/TextareaField</a></li><li><a href="module-e2e_fields_TextField.html">e2e/fields/TextField</a></li><li><a href="module-e2e_fields_TimeField.html">e2e/fields/TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField.html">e2e/fields/TinyMCEField</a></li><li><a href="module-e2e_helpers.html">e2e/helpers</a></li><li><a href="module-e2e_helpers_Helper.html">e2e/helpers/Helper</a></li><li><a href="module-e2e_i18n.html">e2e/i18n</a></li><li><a href="module-e2e_pages.html">e2e/pages</a></li><li><a href="module-e2e_pages_BackEndPage.html">e2e/pages/BackEndPage</a></li><li><a href="module-e2e_pages_Page.html">e2e/pages/Page</a></li><li><a href="module-e2e_pages_TablePage.html">e2e/pages/TablePage</a></li><li><a href="module-e2e_plugins.html">e2e/plugins</a></li><li><a href="module-e2e_plugins_screenshotPlugin.html">e2e/plugins/screenshotPlugin</a></li><li><a href="module-unit.html">unit</a></li><li><a href="module-unit_plugins.html">unit/plugins</a></li><li><a href="module-unit_plugins_inlineTemplatesPreprocessor.html">unit/plugins/inlineTemplatesPreprocessor</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="module-e2e_asserts_TableAssert-TableAssert.html">e2e/asserts/TableAssert~TableAssert</a></li><li><a href="module-e2e_fields_AutoCompleteField-AutoCompleteField.html">e2e/fields/AutoCompleteField~AutoCompleteField</a></li><li><a href="module-e2e_fields_CheckboxesField-CheckboxesField.html">e2e/fields/CheckboxesField~CheckboxesField</a></li><li><a href="module-e2e_fields_CheckboxField-CheckboxField.html">e2e/fields/CheckboxField~CheckboxField</a></li><li><a href="module-e2e_fields_DateField-DateField.html">e2e/fields/DateField~DateField</a></li><li><a href="module-e2e_fields_DateTimeField-DateTimeField.html">e2e/fields/DateTimeField~DateTimeField</a></li><li><a href="module-e2e_fields_FakeField-FakeField.html">e2e/fields/FakeField~FakeField</a></li><li><a href="module-e2e_fields_Field-Field.html">e2e/fields/Field~Field</a></li><li><a href="module-e2e_fields_MatchField-MatchField.html">e2e/fields/MatchField~MatchField</a></li><li><a href="module-e2e_fields_MatchField-MatchTagsField.html">e2e/fields/MatchField~MatchTagsField</a></li><li><a href="module-e2e_fields_MatchField-MatchTextField.html">e2e/fields/MatchField~MatchTextField</a></li><li><a href="module-e2e_fields_SelectField-SelectField.html">e2e/fields/SelectField~SelectField</a></li><li><a href="module-e2e_fields_TagsField-TagsField.html">e2e/fields/TagsField~TagsField</a></li><li><a href="module-e2e_fields_TextareaField-TextareaField.html">e2e/fields/TextareaField~TextareaField</a></li><li><a href="module-e2e_fields_TextField-TextField.html">e2e/fields/TextField~TextField</a></li><li><a href="module-e2e_fields_TimeField-TimeField.html">e2e/fields/TimeField~TimeField</a></li><li><a href="module-e2e_fields_TinyMCEField-TinyMCEField.html">e2e/fields/TinyMCEField~TinyMCEField</a></li><li><a href="module-e2e_helpers_Helper-Helper.html">e2e/helpers/Helper~Helper</a></li><li><a href="module-e2e_pages_BackEndPage-BackEndPage.html">e2e/pages/BackEndPage~BackEndPage</a></li><li><a href="module-e2e_pages_Page-Page.html">e2e/pages/Page~Page</a></li><li><a href="module-e2e_pages_TablePage-TablePage.html">e2e/pages/TablePage~TablePage</a></li><li><a href="module-e2e_plugins_screenshotPlugin-ScreenshotPlugin.html">e2e/plugins/screenshotPlugin~ScreenshotPlugin</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Nov 19 2021 15:36:29 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
